@@ -1,0 +1,1483 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/danie/ontologies/2023/5/untitled-ontology-2/"
+     xml:base="http://www.semanticweb.org/danie/ontologies/2023/5/untitled-ontology-2/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:foaf="http://xmlns.com/foaf/0.1/"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:terms="http://purl.org/dc/terms/"
+     xmlns:WatchCollection="http://www.unicam.it/WatchCollection#"
+     xmlns:sw-vocab-status="http://www.w3.org/2003/06/sw-vocab-status/">
+    <owl:Ontology rdf:about="http://www.unicam.it/WatchCollection">
+        <owl:imports rdf:resource="http://purl.org/spar/foaf"/>
+        <terms:creator>Daniele Monaldi</terms:creator>
+        <terms:title xml:lang="en">Watch Collection Ontology</terms:title>
+        <rdfs:comment xml:lang="en">This ontology represents a collection of wristwatches.</rdfs:comment>
+        <rdfs:label xml:lang="en">Watch Collection Ontology</rdfs:label>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.unicam.it/WatchCollection#contains -->
+
+    <owl:ObjectProperty rdf:about="http://www.unicam.it/WatchCollection#contains">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.unicam.it/WatchCollection#Collection"/>
+                    <rdf:Description rdf:about="http://www.unicam.it/WatchCollection#Wishlist"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.unicam.it/WatchCollection#Reference"/>
+                    <rdf:Description rdf:about="http://www.unicam.it/WatchCollection#WatchCollectionData"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.unicam.it/WatchCollection#hasCaseMaterial -->
+
+    <owl:ObjectProperty rdf:about="http://www.unicam.it/WatchCollection#hasCaseMaterial">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="http://www.unicam.it/WatchCollection#Reference"/>
+        <rdfs:range rdf:resource="http://www.unicam.it/WatchCollection#Material"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.unicam.it/WatchCollection#hasComplication -->
+
+    <owl:ObjectProperty rdf:about="http://www.unicam.it/WatchCollection#hasComplication">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="http://www.unicam.it/WatchCollection#Movement"/>
+        <rdfs:range rdf:resource="http://www.unicam.it/WatchCollection#Complication"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.unicam.it/WatchCollection#hasDimension -->
+
+    <owl:ObjectProperty rdf:about="http://www.unicam.it/WatchCollection#hasDimension">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="http://www.unicam.it/WatchCollection#Reference"/>
+        <rdfs:range rdf:resource="http://www.unicam.it/WatchCollection#Dimension"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.unicam.it/WatchCollection#hasGlassMaterial -->
+
+    <owl:ObjectProperty rdf:about="http://www.unicam.it/WatchCollection#hasGlassMaterial">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="http://www.unicam.it/WatchCollection#Reference"/>
+        <rdfs:range rdf:resource="http://www.unicam.it/WatchCollection#Material"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.unicam.it/WatchCollection#hasModel -->
+
+    <owl:ObjectProperty rdf:about="http://www.unicam.it/WatchCollection#hasModel">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <owl:inverseOf rdf:resource="http://www.unicam.it/WatchCollection#hasReference"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="http://www.unicam.it/WatchCollection#Reference"/>
+        <rdfs:range rdf:resource="http://www.unicam.it/WatchCollection#Model"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.unicam.it/WatchCollection#hasMovement -->
+
+    <owl:ObjectProperty rdf:about="http://www.unicam.it/WatchCollection#hasMovement">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <owl:inverseOf rdf:resource="http://www.unicam.it/WatchCollection#isUsedIn"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="http://www.unicam.it/WatchCollection#Reference"/>
+        <rdfs:range rdf:resource="http://www.unicam.it/WatchCollection#Movement"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.unicam.it/WatchCollection#hasOwner -->
+
+    <owl:ObjectProperty rdf:about="http://www.unicam.it/WatchCollection#hasOwner">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <owl:inverseOf rdf:resource="http://www.unicam.it/WatchCollection#owns"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="http://www.unicam.it/WatchCollection#Collection"/>
+        <rdfs:range rdf:resource="http://www.unicam.it/WatchCollection#User"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.unicam.it/WatchCollection#hasReference -->
+
+    <owl:ObjectProperty rdf:about="http://www.unicam.it/WatchCollection#hasReference">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.unicam.it/WatchCollection#Model"/>
+                    <rdf:Description rdf:about="http://www.unicam.it/WatchCollection#WatchCollectionData"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://www.unicam.it/WatchCollection#Reference"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.unicam.it/WatchCollection#hasRetailPrice -->
+
+    <owl:ObjectProperty rdf:about="http://www.unicam.it/WatchCollection#hasRetailPrice">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="http://www.unicam.it/WatchCollection#Reference"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.unicam.it/WatchCollection#hasStrapMaterial -->
+
+    <owl:ObjectProperty rdf:about="http://www.unicam.it/WatchCollection#hasStrapMaterial">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="http://www.unicam.it/WatchCollection#Reference"/>
+        <rdfs:range rdf:resource="http://www.unicam.it/WatchCollection#Material"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.unicam.it/WatchCollection#hasWatchType -->
+
+    <owl:ObjectProperty rdf:about="http://www.unicam.it/WatchCollection#hasWatchType">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="http://www.unicam.it/WatchCollection#Reference"/>
+        <rdfs:range rdf:resource="http://www.unicam.it/WatchCollection#WatchType"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.unicam.it/WatchCollection#isUsedIn -->
+
+    <owl:ObjectProperty rdf:about="http://www.unicam.it/WatchCollection#isUsedIn">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="http://www.unicam.it/WatchCollection#Movement"/>
+        <rdfs:range rdf:resource="http://www.unicam.it/WatchCollection#Reference"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.unicam.it/WatchCollection#manage -->
+
+    <owl:ObjectProperty rdf:about="http://www.unicam.it/WatchCollection#manage">
+        <owl:inverseOf rdf:resource="http://www.unicam.it/WatchCollection#member"/>
+        <rdfs:domain rdf:resource="http://xmlns.com/foaf/0.1/Group"/>
+        <rdfs:range rdf:resource="http://xmlns.com/foaf/0.1/Organization"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.unicam.it/WatchCollection#member -->
+
+    <owl:ObjectProperty rdf:about="http://www.unicam.it/WatchCollection#member">
+        <rdfs:domain rdf:resource="http://www.unicam.it/WatchCollection#ControlledOrganization"/>
+        <rdfs:range rdf:resource="http://xmlns.com/foaf/0.1/Group"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.unicam.it/WatchCollection#owns -->
+
+    <owl:ObjectProperty rdf:about="http://www.unicam.it/WatchCollection#owns">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.unicam.it/WatchCollection#User"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.unicam.it/WatchCollection#Collection"/>
+                    <rdf:Description rdf:about="http://www.unicam.it/WatchCollection#Wishlist"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/made -->
+
+    <rdf:Description rdf:about="http://xmlns.com/foaf/0.1/made">
+        <owl:inverseOf rdf:resource="http://xmlns.com/foaf/0.1/maker"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="http://xmlns.com/foaf/0.1/Organization"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.unicam.it/WatchCollection#Model"/>
+                    <rdf:Description rdf:about="http://www.unicam.it/WatchCollection#Movement"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </rdf:Description>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/maker -->
+
+    <rdf:Description rdf:about="http://xmlns.com/foaf/0.1/maker">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.unicam.it/WatchCollection#Model"/>
+                    <rdf:Description rdf:about="http://www.unicam.it/WatchCollection#Movement"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://xmlns.com/foaf/0.1/Organization"/>
+    </rdf:Description>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.unicam.it/WatchCollection#batteryType -->
+
+    <owl:DatatypeProperty rdf:about="http://www.unicam.it/WatchCollection#batteryType">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.unicam.it/WatchCollection#QuartzMovement"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="en">Battery type of a quartz movement.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.unicam.it/WatchCollection#city -->
+
+    <owl:DatatypeProperty rdf:about="http://www.unicam.it/WatchCollection#city">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://xmlns.com/foaf/0.1/Organization"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.unicam.it/WatchCollection#comment -->
+
+    <owl:DatatypeProperty rdf:about="http://www.unicam.it/WatchCollection#comment">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.unicam.it/WatchCollection#WatchCollectionData"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="en">Comment entered by the user on one of his watches in the collection.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.unicam.it/WatchCollection#complication -->
+
+    <owl:DatatypeProperty rdf:about="http://www.unicam.it/WatchCollection#complication">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.unicam.it/WatchCollection#Complication"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="en">Name of a movement complication.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.unicam.it/WatchCollection#coscCertification -->
+
+    <owl:DatatypeProperty rdf:about="http://www.unicam.it/WatchCollection#coscCertification">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.unicam.it/WatchCollection#Movement"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+        <rdfs:comment xml:lang="en">Indicates whether or not the watch is COSC certified. This certification depends on the movement.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.unicam.it/WatchCollection#diameter -->
+
+    <owl:DatatypeProperty rdf:about="http://www.unicam.it/WatchCollection#diameter">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.unicam.it/WatchCollection#Dimension"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+        <rdfs:comment xml:lang="en">Indicates the diameter in millimeters of a watch case.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.unicam.it/WatchCollection#email -->
+
+    <owl:DatatypeProperty rdf:about="http://www.unicam.it/WatchCollection#email">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.unicam.it/WatchCollection#User"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+        <rdfs:comment xml:lang="en">Indicates an account user&apos;s email, used for authentication.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.unicam.it/WatchCollection#frequency -->
+
+    <owl:DatatypeProperty rdf:about="http://www.unicam.it/WatchCollection#frequency">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.unicam.it/WatchCollection#MechanicalMovement"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+        <rdfs:comment xml:lang="en">Indicates the frequency in alternations/hours of a mechanical movement.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.unicam.it/WatchCollection#handle -->
+
+    <owl:DatatypeProperty rdf:about="http://www.unicam.it/WatchCollection#handle">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.unicam.it/WatchCollection#Dimension"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+        <rdfs:comment xml:lang="en">Indicates the handles distance in millimeters of a watch case.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.unicam.it/WatchCollection#imageLink -->
+
+    <owl:DatatypeProperty rdf:about="http://www.unicam.it/WatchCollection#imageLink">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.unicam.it/WatchCollection#Movement"/>
+                    <rdf:Description rdf:about="http://www.unicam.it/WatchCollection#Reference"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="en">Indicates a reference image link.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.unicam.it/WatchCollection#introductionYear -->
+
+    <owl:DatatypeProperty rdf:about="http://www.unicam.it/WatchCollection#introductionYear">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.unicam.it/WatchCollection#Reference"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.unicam.it/WatchCollection#jewels -->
+
+    <owl:DatatypeProperty rdf:about="http://www.unicam.it/WatchCollection#jewels">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.unicam.it/WatchCollection#Movement"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+        <rdfs:comment xml:lang="en">Indicates the number of jewels present in a movement.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.unicam.it/WatchCollection#listPrice -->
+
+    <owl:DatatypeProperty rdf:about="http://www.unicam.it/WatchCollection#listPrice">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.unicam.it/WatchCollection#Reference"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+        <rdfs:comment xml:lang="en">Indicates the list price of a reference.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.unicam.it/WatchCollection#lugToLug -->
+
+    <owl:DatatypeProperty rdf:about="http://www.unicam.it/WatchCollection#lugToLug">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.unicam.it/WatchCollection#Dimension"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+        <rdfs:comment xml:lang="en">Indicates the lug to lug distance in millimeters of a watch case.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.unicam.it/WatchCollection#movementType -->
+
+    <owl:DatatypeProperty rdf:about="http://www.unicam.it/WatchCollection#movementType">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.unicam.it/WatchCollection#Movement"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.unicam.it/WatchCollection#password -->
+
+    <owl:DatatypeProperty rdf:about="http://www.unicam.it/WatchCollection#password">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.unicam.it/WatchCollection#User"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="en">Indicates an account user&apos;s password, used for authentication.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.unicam.it/WatchCollection#purchaseDate -->
+
+    <owl:DatatypeProperty rdf:about="http://www.unicam.it/WatchCollection#purchaseDate">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.unicam.it/WatchCollection#WatchCollectionData"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+        <rdfs:comment xml:lang="en">Indicates the purchase date of a reference in a collection.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.unicam.it/WatchCollection#purchaseOrigin -->
+
+    <owl:DatatypeProperty rdf:about="http://www.unicam.it/WatchCollection#purchaseOrigin">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.unicam.it/WatchCollection#WatchCollectionData"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="en">Indicates the origin of the purchase of a reference present in a collection.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.unicam.it/WatchCollection#purchasePrice -->
+
+    <owl:DatatypeProperty rdf:about="http://www.unicam.it/WatchCollection#purchasePrice">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.unicam.it/WatchCollection#WatchCollectionData"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+        <rdfs:comment xml:lang="en">Indicates the purchase price of a reference in a collection.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.unicam.it/WatchCollection#reference -->
+
+    <owl:DatatypeProperty rdf:about="http://www.unicam.it/WatchCollection#reference">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.unicam.it/WatchCollection#Reference"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="en">Alphanumeric code that uniquely identifies a reference.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.unicam.it/WatchCollection#reserve -->
+
+    <owl:DatatypeProperty rdf:about="http://www.unicam.it/WatchCollection#reserve">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.unicam.it/WatchCollection#Movement"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+        <rdfs:comment xml:lang="en">Indicates the duration of a charge of a mechanical movement, expressed in hours.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.unicam.it/WatchCollection#rotor -->
+
+    <owl:DatatypeProperty rdf:about="http://www.unicam.it/WatchCollection#rotor">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.unicam.it/WatchCollection#AutomaticWinding"/>
+                    <rdf:Description rdf:about="http://www.unicam.it/WatchCollection#ManualWinding"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.unicam.it/WatchCollection#serialNumber -->
+
+    <owl:DatatypeProperty rdf:about="http://www.unicam.it/WatchCollection#serialNumber">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.unicam.it/WatchCollection#WatchCollectionData"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.unicam.it/WatchCollection#thickness -->
+
+    <owl:DatatypeProperty rdf:about="http://www.unicam.it/WatchCollection#thickness">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.unicam.it/WatchCollection#Dimension"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+        <rdfs:comment xml:lang="en">Indicates the thickness in millimeters of a watch case.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.unicam.it/WatchCollection#type -->
+
+    <owl:DatatypeProperty rdf:about="http://www.unicam.it/WatchCollection#type">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.unicam.it/WatchCollection#WatchType"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="en">Indicates the type of a watch.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.unicam.it/WatchCollection#waterResistance -->
+
+    <owl:DatatypeProperty rdf:about="http://www.unicam.it/WatchCollection#waterResistance">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.unicam.it/WatchCollection#Reference"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+        <rdfs:comment xml:lang="en">Indicates the water resistance of a reference expressed in metres.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/name -->
+
+    <rdf:Description rdf:about="http://xmlns.com/foaf/0.1/name">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.unicam.it/WatchCollection#Material"/>
+                    <rdf:Description rdf:about="http://www.unicam.it/WatchCollection#Model"/>
+                    <rdf:Description rdf:about="http://www.unicam.it/WatchCollection#Movement"/>
+                    <rdf:Description rdf:about="http://www.unicam.it/WatchCollection#User"/>
+                    <rdf:Description rdf:about="http://xmlns.com/foaf/0.1/Group"/>
+                    <rdf:Description rdf:about="http://xmlns.com/foaf/0.1/Organization"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/surname -->
+
+    <rdf:Description rdf:about="http://xmlns.com/foaf/0.1/surname">
+        <rdfs:domain rdf:resource="http://www.unicam.it/WatchCollection#User"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </rdf:Description>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.unicam.it/WatchCollection#AutomaticWinding -->
+
+    <owl:Class rdf:about="http://www.unicam.it/WatchCollection#AutomaticWinding">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.unicam.it/WatchCollection#MechanicalMovement"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.unicam.it/WatchCollection#rotor"/>
+                        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:hasValue>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.unicam.it/WatchCollection#rotor"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                        <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://www.unicam.it/WatchCollection#ManualWinding"/>
+        <rdfs:comment xml:lang="en">Automatic movements are those whose spring is automatically wound by a rotor, which moves thanks to the movements of the wrist.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.unicam.it/WatchCollection#Collection -->
+
+    <owl:Class rdf:about="http://www.unicam.it/WatchCollection#Collection">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.unicam.it/WatchCollection#contains"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.unicam.it/WatchCollection#WatchCollectionData"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.unicam.it/WatchCollection#hasOwner"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.unicam.it/WatchCollection#User"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://www.unicam.it/WatchCollection#Wishlist"/>
+        <rdfs:comment xml:lang="en">The class contains the users&apos; watch collections.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.unicam.it/WatchCollection#Complication -->
+
+    <owl:Class rdf:about="http://www.unicam.it/WatchCollection#Complication">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.unicam.it/WatchCollection#complication"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">The class contains the various complications that a movement can have (time only, chronograph, ...).</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.unicam.it/WatchCollection#ControlledOrganization -->
+
+    <owl:Class rdf:about="http://www.unicam.it/WatchCollection#ControlledOrganization">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://xmlns.com/foaf/0.1/Organization"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.unicam.it/WatchCollection#member"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                        <owl:onClass rdf:resource="http://xmlns.com/foaf/0.1/Group"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">The class contains the controlled organizations, which are part of a multinational corporation.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.unicam.it/WatchCollection#Dimension -->
+
+    <owl:Class rdf:about="http://www.unicam.it/WatchCollection#Dimension">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.unicam.it/WatchCollection#diameter"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.unicam.it/WatchCollection#handle"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.unicam.it/WatchCollection#lugToLug"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.unicam.it/WatchCollection#thickness"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">The class contains the physical dimensions of a specific reference.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.unicam.it/WatchCollection#ManualWinding -->
+
+    <owl:Class rdf:about="http://www.unicam.it/WatchCollection#ManualWinding">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.unicam.it/WatchCollection#MechanicalMovement"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.unicam.it/WatchCollection#rotor"/>
+                        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</owl:hasValue>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.unicam.it/WatchCollection#rotor"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                        <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">Automatic movements are those whose spring is wound manually through the rotation of the watch crown.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.unicam.it/WatchCollection#Material -->
+
+    <owl:Class rdf:about="http://www.unicam.it/WatchCollection#Material">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://xmlns.com/foaf/0.1/name"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">Some materials can be used both for the construction of the case and for the construction of the strap/bracelet.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The class contains the materials that can be used in the construction of a watch.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.unicam.it/WatchCollection#MechanicalMovement -->
+
+    <owl:Class rdf:about="http://www.unicam.it/WatchCollection#MechanicalMovement">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.unicam.it/WatchCollection#Movement"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.unicam.it/WatchCollection#frequency"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                        <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://www.unicam.it/WatchCollection#QuartzMovement"/>
+        <rdfs:comment xml:lang="en">The class contains the mechanical movements, which are powered through a mainspring.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.unicam.it/WatchCollection#Model -->
+
+    <owl:Class rdf:about="http://www.unicam.it/WatchCollection#Model">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.unicam.it/WatchCollection#hasReference"/>
+                <owl:someValuesFrom rdf:resource="http://www.unicam.it/WatchCollection#Reference"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://xmlns.com/foaf/0.1/maker"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://xmlns.com/foaf/0.1/Organization"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://xmlns.com/foaf/0.1/name"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">The class contains the various &quot;generic&quot; models produced by an organization.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.unicam.it/WatchCollection#Movement -->
+
+    <owl:Class rdf:about="http://www.unicam.it/WatchCollection#Movement">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.unicam.it/WatchCollection#hasComplication"/>
+                <owl:someValuesFrom rdf:resource="http://www.unicam.it/WatchCollection#Complication"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.unicam.it/WatchCollection#isUsedIn"/>
+                <owl:someValuesFrom rdf:resource="http://www.unicam.it/WatchCollection#Reference"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://xmlns.com/foaf/0.1/maker"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://xmlns.com/foaf/0.1/Organization"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.unicam.it/WatchCollection#coscCertification"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.unicam.it/WatchCollection#imageLink"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.unicam.it/WatchCollection#jewels"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.unicam.it/WatchCollection#movementType"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.unicam.it/WatchCollection#reserve"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">The class contains the movements used in the references.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.unicam.it/WatchCollection#QuartzMovement -->
+
+    <owl:Class rdf:about="http://www.unicam.it/WatchCollection#QuartzMovement">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.unicam.it/WatchCollection#Movement"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.unicam.it/WatchCollection#batteryType"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                        <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">The class contains quartz movements, which are powered by a battery.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.unicam.it/WatchCollection#Reference -->
+
+    <owl:Class rdf:about="http://www.unicam.it/WatchCollection#Reference">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.unicam.it/WatchCollection#hasCaseMaterial"/>
+                <owl:someValuesFrom rdf:resource="http://www.unicam.it/WatchCollection#Material"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.unicam.it/WatchCollection#hasStrapMaterial"/>
+                <owl:someValuesFrom rdf:resource="http://www.unicam.it/WatchCollection#Material"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.unicam.it/WatchCollection#hasDimension"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.unicam.it/WatchCollection#Dimension"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.unicam.it/WatchCollection#hasGlassMaterial"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.unicam.it/WatchCollection#Material"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.unicam.it/WatchCollection#hasModel"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.unicam.it/WatchCollection#Model"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.unicam.it/WatchCollection#hasMovement"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.unicam.it/WatchCollection#Movement"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.unicam.it/WatchCollection#hasWatchType"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.unicam.it/WatchCollection#WatchType"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.unicam.it/WatchCollection#imageLink"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.unicam.it/WatchCollection#introductionYear"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.unicam.it/WatchCollection#listPrice"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.unicam.it/WatchCollection#purchasePrice"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.unicam.it/WatchCollection#reference"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.unicam.it/WatchCollection#waterResistance"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">The class contains the references of each model. References indicate the various versions of a watch model. Each reference is uniquely identified by the reference number.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.unicam.it/WatchCollection#User -->
+
+    <owl:Class rdf:about="http://www.unicam.it/WatchCollection#User">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.unicam.it/WatchCollection#owns"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.unicam.it/WatchCollection#Collection"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.unicam.it/WatchCollection#email"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.unicam.it/WatchCollection#password"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://xmlns.com/foaf/0.1/name"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://xmlns.com/foaf/0.1/surname"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">The class contains the users of the platform, who possibly can have a collection.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.unicam.it/WatchCollection#WatchCollectionData -->
+
+    <owl:Class rdf:about="http://www.unicam.it/WatchCollection#WatchCollectionData">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.unicam.it/WatchCollection#hasReference"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.unicam.it/WatchCollection#Reference"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.unicam.it/WatchCollection#purchaseDate"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.unicam.it/WatchCollection#purchaseOrigin"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.unicam.it/WatchCollection#purchasePrice"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.unicam.it/WatchCollection#serialNumber"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.unicam.it/WatchCollection#comment"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.unicam.it/WatchCollection#WatchType -->
+
+    <owl:Class rdf:about="http://www.unicam.it/WatchCollection#WatchType">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.unicam.it/WatchCollection#type"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">The class contains the types of watches (diver watch, dress watch, ...).</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.unicam.it/WatchCollection#Wishlist -->
+
+    <owl:Class rdf:about="http://www.unicam.it/WatchCollection#Wishlist">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.unicam.it/WatchCollection#contains"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.unicam.it/WatchCollection#Reference"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.unicam.it/WatchCollection#hasOwner"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.unicam.it/WatchCollection#User"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">The class contains the users&apos; watch wishlist.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/Group -->
+
+    <rdf:Description rdf:about="http://xmlns.com/foaf/0.1/Group">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.unicam.it/WatchCollection#manage"/>
+                <owl:someValuesFrom rdf:resource="http://www.unicam.it/WatchCollection#ControlledOrganization"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">A group is a multinational corporation that controls multiple organizations.</rdfs:comment>
+    </rdf:Description>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/Organization -->
+
+    <rdf:Description rdf:about="http://xmlns.com/foaf/0.1/Organization">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://xmlns.com/foaf/0.1/Agent"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://xmlns.com/foaf/0.1/made"/>
+                        <owl:someValuesFrom rdf:resource="http://www.unicam.it/WatchCollection#Model"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://xmlns.com/foaf/0.1/made"/>
+                        <owl:someValuesFrom rdf:resource="http://www.unicam.it/WatchCollection#Movement"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.unicam.it/WatchCollection#city"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                        <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">The class contains organizations that manufacture watches.</rdfs:comment>
+    </rdf:Description>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.unicam.it/WatchCollection#Chronograph -->
+
+    <owl:NamedIndividual rdf:about="http://www.unicam.it/WatchCollection#Chronograph">
+        <rdf:type rdf:resource="http://www.unicam.it/WatchCollection#WatchType"/>
+        <WatchCollection:type>Chronograph</WatchCollection:type>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.unicam.it/WatchCollection#ChronographComplication -->
+
+    <owl:NamedIndividual rdf:about="http://www.unicam.it/WatchCollection#ChronographComplication">
+        <rdf:type rdf:resource="http://www.unicam.it/WatchCollection#Complication"/>
+        <WatchCollection:complication>Chronograph</WatchCollection:complication>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.unicam.it/WatchCollection#CosmographDaytona -->
+
+    <owl:NamedIndividual rdf:about="http://www.unicam.it/WatchCollection#CosmographDaytona">
+        <rdf:type rdf:resource="http://www.unicam.it/WatchCollection#Model"/>
+        <foaf:maker rdf:resource="http://www.unicam.it/WatchCollection#Rolex"/>
+        <foaf:name>Cosmograph Daytona</foaf:name>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.unicam.it/WatchCollection#DateComplication -->
+
+    <owl:NamedIndividual rdf:about="http://www.unicam.it/WatchCollection#DateComplication">
+        <rdf:type rdf:resource="http://www.unicam.it/WatchCollection#Complication"/>
+        <WatchCollection:complication>Date</WatchCollection:complication>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.unicam.it/WatchCollection#DayDate40 -->
+
+    <owl:NamedIndividual rdf:about="http://www.unicam.it/WatchCollection#DayDate40">
+        <rdf:type rdf:resource="http://www.unicam.it/WatchCollection#Model"/>
+        <foaf:maker rdf:resource="http://www.unicam.it/WatchCollection#Rolex"/>
+        <foaf:name>Day-Date 40</foaf:name>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.unicam.it/WatchCollection#DayDate40Dimension -->
+
+    <owl:NamedIndividual rdf:about="http://www.unicam.it/WatchCollection#DayDate40Dimension">
+        <rdf:type rdf:resource="http://www.unicam.it/WatchCollection#Dimension"/>
+        <WatchCollection:diameter rdf:datatype="http://www.w3.org/2001/XMLSchema#float">40.0</WatchCollection:diameter>
+        <WatchCollection:handle rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">20</WatchCollection:handle>
+        <WatchCollection:lugToLug rdf:datatype="http://www.w3.org/2001/XMLSchema#float">47.2</WatchCollection:lugToLug>
+        <WatchCollection:thickness rdf:datatype="http://www.w3.org/2001/XMLSchema#float">12.2</WatchCollection:thickness>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.unicam.it/WatchCollection#DayDateComplication -->
+
+    <owl:NamedIndividual rdf:about="http://www.unicam.it/WatchCollection#DayDateComplication">
+        <rdf:type rdf:resource="http://www.unicam.it/WatchCollection#Complication"/>
+        <WatchCollection:complication>Day-Date</WatchCollection:complication>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.unicam.it/WatchCollection#DaytonaDimension -->
+
+    <owl:NamedIndividual rdf:about="http://www.unicam.it/WatchCollection#DaytonaDimension">
+        <rdf:type rdf:resource="http://www.unicam.it/WatchCollection#Dimension"/>
+        <WatchCollection:diameter rdf:datatype="http://www.w3.org/2001/XMLSchema#float">40.0</WatchCollection:diameter>
+        <WatchCollection:handle rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">20</WatchCollection:handle>
+        <WatchCollection:lugToLug rdf:datatype="http://www.w3.org/2001/XMLSchema#float">45.6</WatchCollection:lugToLug>
+        <WatchCollection:thickness rdf:datatype="http://www.w3.org/2001/XMLSchema#float">12.5</WatchCollection:thickness>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.unicam.it/WatchCollection#L34104936 -->
+
+    <owl:NamedIndividual rdf:about="http://www.unicam.it/WatchCollection#L34104936">
+        <rdf:type rdf:resource="http://www.unicam.it/WatchCollection#Reference"/>
+        <WatchCollection:hasCaseMaterial rdf:resource="http://www.unicam.it/WatchCollection#StainlessSteel"/>
+        <WatchCollection:hasDimension rdf:resource="http://www.unicam.it/WatchCollection#Spirit37Dimension"/>
+        <WatchCollection:hasGlassMaterial rdf:resource="http://www.unicam.it/WatchCollection#Sapphire"/>
+        <WatchCollection:hasModel rdf:resource="http://www.unicam.it/WatchCollection#Spirit37"/>
+        <WatchCollection:hasMovement rdf:resource="http://www.unicam.it/WatchCollection#LonginesL8884"/>
+        <WatchCollection:hasStrapMaterial rdf:resource="http://www.unicam.it/WatchCollection#StainlessSteel"/>
+        <WatchCollection:hasWatchType rdf:resource="http://www.unicam.it/WatchCollection#3hands"/>
+        <WatchCollection:imageLink>https://www.fabioferro.eu/wp-content/uploads/orologio-longines-spirit-blu-acciaio-l34104936-5.jpg</WatchCollection:imageLink>
+        <WatchCollection:introductionYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2020</WatchCollection:introductionYear>
+        <WatchCollection:listPrice rdf:datatype="http://www.w3.org/2001/XMLSchema#float">2700.0</WatchCollection:listPrice>
+        <WatchCollection:reference>L.3.410.4.93.6</WatchCollection:reference>
+        <WatchCollection:waterResistance rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">100</WatchCollection:waterResistance>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.unicam.it/WatchCollection#Longines -->
+
+    <owl:NamedIndividual rdf:about="http://www.unicam.it/WatchCollection#Longines">
+        <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Organization"/>
+        <WatchCollection:member rdf:resource="http://www.unicam.it/WatchCollection#TheSwatchGroup"/>
+        <WatchCollection:city>Saint-Imier</WatchCollection:city>
+        <foaf:name>Longines</foaf:name>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.unicam.it/WatchCollection#LonginesL8884 -->
+
+    <owl:NamedIndividual rdf:about="http://www.unicam.it/WatchCollection#LonginesL8884">
+        <rdf:type rdf:resource="http://www.unicam.it/WatchCollection#Movement"/>
+        <WatchCollection:hasComplication rdf:resource="http://www.unicam.it/WatchCollection#DateComplication"/>
+        <foaf:maker rdf:resource="http://www.unicam.it/WatchCollection#Longines"/>
+        <WatchCollection:coscCertification rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</WatchCollection:coscCertification>
+        <WatchCollection:frequency rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">25200</WatchCollection:frequency>
+        <WatchCollection:imageLink>https://www.thewatchcompany.com/media/tm_blog/p/o/7/12858/post_7_12858.jpg</WatchCollection:imageLink>
+        <WatchCollection:jewels rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">21</WatchCollection:jewels>
+        <WatchCollection:movementType>Mechanical - Automatic winding</WatchCollection:movementType>
+        <WatchCollection:reserve rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">72</WatchCollection:reserve>
+        <WatchCollection:rotor rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</WatchCollection:rotor>
+        <foaf:name>L888.4</foaf:name>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.unicam.it/WatchCollection#Rolex -->
+
+    <owl:NamedIndividual rdf:about="http://www.unicam.it/WatchCollection#Rolex">
+        <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Organization"/>
+        <WatchCollection:city>Geneve</WatchCollection:city>
+        <foaf:name>Rolex</foaf:name>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.unicam.it/WatchCollection#Rolex3255 -->
+
+    <owl:NamedIndividual rdf:about="http://www.unicam.it/WatchCollection#Rolex3255">
+        <rdf:type rdf:resource="http://www.unicam.it/WatchCollection#Movement"/>
+        <WatchCollection:hasComplication rdf:resource="http://www.unicam.it/WatchCollection#DayDateComplication"/>
+        <foaf:maker rdf:resource="http://www.unicam.it/WatchCollection#Rolex"/>
+        <WatchCollection:coscCertification rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</WatchCollection:coscCertification>
+        <WatchCollection:frequency rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">28800</WatchCollection:frequency>
+        <WatchCollection:imageLink>https://reference.grail-watch.com/wp-content/uploads/2019/11/new-rolex-day-date-calibre-3255-detail.png</WatchCollection:imageLink>
+        <WatchCollection:jewels rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">31</WatchCollection:jewels>
+        <WatchCollection:movementType>Mechanical - Automatic winding</WatchCollection:movementType>
+        <WatchCollection:reserve rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">70</WatchCollection:reserve>
+        <WatchCollection:rotor rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</WatchCollection:rotor>
+        <foaf:name>3255</foaf:name>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.unicam.it/WatchCollection#Rolex4130 -->
+
+    <owl:NamedIndividual rdf:about="http://www.unicam.it/WatchCollection#Rolex4130">
+        <rdf:type rdf:resource="http://www.unicam.it/WatchCollection#Movement"/>
+        <WatchCollection:hasComplication rdf:resource="http://www.unicam.it/WatchCollection#ChronographComplication"/>
+        <foaf:maker rdf:resource="http://www.unicam.it/WatchCollection#Rolex"/>
+        <WatchCollection:coscCertification rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</WatchCollection:coscCertification>
+        <WatchCollection:frequency rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">28800</WatchCollection:frequency>
+        <WatchCollection:imageLink>https://www.gioielleriarizzo.eu/site/wp-content/uploads/2021/11/quadrante-Daytona-Ceramic-116500LN-116503-116508-1.jpg</WatchCollection:imageLink>
+        <WatchCollection:jewels rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">44</WatchCollection:jewels>
+        <WatchCollection:movementType>Mechanical - Automatic winding</WatchCollection:movementType>
+        <WatchCollection:reserve rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">72</WatchCollection:reserve>
+        <WatchCollection:rotor rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</WatchCollection:rotor>
+        <foaf:name>4130</foaf:name>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.unicam.it/WatchCollection#RoseGold -->
+
+    <owl:NamedIndividual rdf:about="http://www.unicam.it/WatchCollection#RoseGold">
+        <rdf:type rdf:resource="http://www.unicam.it/WatchCollection#Material"/>
+        <foaf:name>Rose Gold</foaf:name>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.unicam.it/WatchCollection#Sapphire -->
+
+    <owl:NamedIndividual rdf:about="http://www.unicam.it/WatchCollection#Sapphire">
+        <rdf:type rdf:resource="http://www.unicam.it/WatchCollection#Material"/>
+        <foaf:name>Sapphire</foaf:name>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.unicam.it/WatchCollection#Spirit37 -->
+
+    <owl:NamedIndividual rdf:about="http://www.unicam.it/WatchCollection#Spirit37">
+        <rdf:type rdf:resource="http://www.unicam.it/WatchCollection#Model"/>
+        <foaf:maker rdf:resource="http://www.unicam.it/WatchCollection#Longines"/>
+        <foaf:name>Spirit 37</foaf:name>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.unicam.it/WatchCollection#Spirit37Dimension -->
+
+    <owl:NamedIndividual rdf:about="http://www.unicam.it/WatchCollection#Spirit37Dimension">
+        <rdf:type rdf:resource="http://www.unicam.it/WatchCollection#Dimension"/>
+        <WatchCollection:diameter rdf:datatype="http://www.w3.org/2001/XMLSchema#float">37.0</WatchCollection:diameter>
+        <WatchCollection:handle rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">19</WatchCollection:handle>
+        <WatchCollection:lugToLug rdf:datatype="http://www.w3.org/2001/XMLSchema#float">45.0</WatchCollection:lugToLug>
+        <WatchCollection:thickness rdf:datatype="http://www.w3.org/2001/XMLSchema#float">11.7</WatchCollection:thickness>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.unicam.it/WatchCollection#StainlessSteel -->
+
+    <owl:NamedIndividual rdf:about="http://www.unicam.it/WatchCollection#StainlessSteel">
+        <rdf:type rdf:resource="http://www.unicam.it/WatchCollection#Material"/>
+        <foaf:name>Stainless Steel</foaf:name>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.unicam.it/WatchCollection#TheSwatchGroup -->
+
+    <owl:NamedIndividual rdf:about="http://www.unicam.it/WatchCollection#TheSwatchGroup">
+        <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Group"/>
+        <foaf:name>The Swatch Group</foaf:name>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.unicam.it/WatchCollection#116500LN -->
+
+    <owl:NamedIndividual rdf:about="http://www.unicam.it/WatchCollection#116500LN">
+        <rdf:type rdf:resource="http://www.unicam.it/WatchCollection#Reference"/>
+        <WatchCollection:hasCaseMaterial rdf:resource="http://www.unicam.it/WatchCollection#StainlessSteel"/>
+        <WatchCollection:hasDimension rdf:resource="http://www.unicam.it/WatchCollection#DaytonaDimension"/>
+        <WatchCollection:hasGlassMaterial rdf:resource="http://www.unicam.it/WatchCollection#Sapphire"/>
+        <WatchCollection:hasModel rdf:resource="http://www.unicam.it/WatchCollection#CosmographDaytona"/>
+        <WatchCollection:hasMovement rdf:resource="http://www.unicam.it/WatchCollection#Rolex4130"/>
+        <WatchCollection:hasStrapMaterial rdf:resource="http://www.unicam.it/WatchCollection#StainlessSteel"/>
+        <WatchCollection:hasWatchType rdf:resource="http://www.unicam.it/WatchCollection#Chronograph"/>
+        <WatchCollection:imageLink>https://luxwatch.it/orologi/wp-content/uploads/2018/09/Rolex-Daytona-116500ln-0001.jpg</WatchCollection:imageLink>
+        <WatchCollection:introductionYear rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">2016</WatchCollection:introductionYear>
+        <WatchCollection:listPrice rdf:datatype="http://www.w3.org/2001/XMLSchema#float">12400.0</WatchCollection:listPrice>
+        <WatchCollection:reference>116500LN</WatchCollection:reference>
+        <WatchCollection:waterResistance rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">100</WatchCollection:waterResistance>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.unicam.it/WatchCollection#228235 -->
+
+    <owl:NamedIndividual rdf:about="http://www.unicam.it/WatchCollection#228235">
+        <rdf:type rdf:resource="http://www.unicam.it/WatchCollection#Reference"/>
+        <WatchCollection:hasCaseMaterial rdf:resource="http://www.unicam.it/WatchCollection#RoseGold"/>
+        <WatchCollection:hasDimension rdf:resource="http://www.unicam.it/WatchCollection#DayDate40Dimension"/>
+        <WatchCollection:hasGlassMaterial rdf:resource="http://www.unicam.it/WatchCollection#Sapphire"/>
+        <WatchCollection:hasModel rdf:resource="http://www.unicam.it/WatchCollection#DayDate40"/>
+        <WatchCollection:hasMovement rdf:resource="http://www.unicam.it/WatchCollection#Rolex3255"/>
+        <WatchCollection:hasStrapMaterial rdf:resource="http://www.unicam.it/WatchCollection#RoseGold"/>
+        <WatchCollection:hasWatchType rdf:resource="http://www.unicam.it/WatchCollection#3hands"/>
+        <WatchCollection:imageLink>https://cdn2.chrono24.com/images/uhren/27483901-seum92m9lnxu4ptco984emzr-ExtraLarge.jpg</WatchCollection:imageLink>
+        <WatchCollection:introductionYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2019</WatchCollection:introductionYear>
+        <WatchCollection:listPrice rdf:datatype="http://www.w3.org/2001/XMLSchema#float">41900.0</WatchCollection:listPrice>
+        <WatchCollection:reference>228235</WatchCollection:reference>
+        <WatchCollection:waterResistance rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">100</WatchCollection:waterResistance>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.unicam.it/WatchCollection#3hands -->
+
+    <owl:NamedIndividual rdf:about="http://www.unicam.it/WatchCollection#3hands">
+        <rdf:type rdf:resource="http://www.unicam.it/WatchCollection#WatchType"/>
+        <WatchCollection:type>3 Hands</WatchCollection:type>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.25.2023-02-15T19:15:49Z) https://github.com/owlcs/owlapi -->
+

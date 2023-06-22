@@ -1,0 +1,489 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.text.TextFlow?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1366.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.unicam.mgc.watchcollection.DetailsController">
+   <children>
+      <HBox prefHeight="768.0" prefWidth="1366.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <VBox prefHeight="768.0" prefWidth="525.0">
+               <children>
+                  <Button fx:id="close" mnemonicParsing="false" style="-fx-background-color: #FFFFFF;">
+                     <VBox.margin>
+                        <Insets left="20.0" top="20.0" />
+                     </VBox.margin></Button>
+                  <ImageView fx:id="watchImage" fitHeight="682.0" fitWidth="483.0" pickOnBounds="true" preserveRatio="true">
+                     <VBox.margin>
+                        <Insets left="20.0" top="20.0" />
+                     </VBox.margin>
+                  </ImageView>
+               </children>
+            </VBox>
+            <VBox prefHeight="768.0" prefWidth="378.0">
+               <children>
+                  <Text fx:id="organizationName" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+                     <VBox.margin>
+                        <Insets top="20.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="Arial" size="18.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="modelName" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="Arial Bold" size="24.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="referenceString" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+                     <font>
+                        <Font name="Arial" size="18.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </Text>
+                  <TextFlow prefHeight="0.0" prefWidth="122.0">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Year:">
+                           <font>
+                              <Font name="Arial Bold" size="18.0" />
+                           </font>
+                        </Text>
+                        <Label text=" " />
+                        <Text fx:id="introductionYear" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+                           <font>
+                              <Font name="Arial" size="18.0" />
+                           </font>
+                        </Text>
+                     </children>
+                     <VBox.margin>
+                        <Insets top="20.0" />
+                     </VBox.margin>
+                  </TextFlow>
+                  <TextFlow prefHeight="0.0" prefWidth="122.0">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="List price:">
+                           <font>
+                              <Font name="Arial Bold" size="18.0" />
+                           </font>
+                        </Text>
+                        <Label text=" " />
+                        <Text fx:id="listPrice" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+                           <font>
+                              <Font name="Arial" size="18.0" />
+                           </font>
+                        </Text>
+                     </children>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </TextFlow>
+                  <TextFlow prefHeight="0.0" prefWidth="122.0">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Watch type:">
+                           <font>
+                              <Font name="Arial Bold" size="18.0" />
+                           </font>
+                        </Text>
+                        <Label text=" " />
+                        <Text fx:id="watchType" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+                           <font>
+                              <Font name="Arial" size="18.0" />
+                           </font>
+                        </Text>
+                     </children>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </TextFlow>
+                  <TextFlow prefHeight="0.0" prefWidth="122.0">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Water resistance:">
+                           <font>
+                              <Font name="Arial Bold" size="18.0" />
+                           </font>
+                        </Text>
+                        <Label text=" " />
+                        <Text fx:id="waterResistance" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+                           <font>
+                              <Font name="Arial" size="18.0" />
+                           </font>
+                        </Text>
+                     </children>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </TextFlow>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Materials" underline="true">
+                     <font>
+                        <Font name="Arial" size="18.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets top="20.0" />
+                     </VBox.margin>
+                  </Text>
+                  <TextFlow prefHeight="0.0" prefWidth="122.0">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Case material:">
+                           <font>
+                              <Font name="Arial Bold" size="18.0" />
+                           </font>
+                        </Text>
+                        <Label text=" " />
+                        <Text fx:id="caseMaterial" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+                           <font>
+                              <Font name="Arial" size="18.0" />
+                           </font>
+                        </Text>
+                     </children>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </TextFlow>
+                  <TextFlow prefHeight="0.0" prefWidth="122.0">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Strap material:">
+                           <font>
+                              <Font name="Arial Bold" size="18.0" />
+                           </font>
+                        </Text>
+                        <Label text=" " />
+                        <Text fx:id="strapMaterial" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+                           <font>
+                              <Font name="Arial" size="18.0" />
+                           </font>
+                        </Text>
+                     </children>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </TextFlow>
+                  <TextFlow prefHeight="0.0" prefWidth="122.0">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Glass material:">
+                           <font>
+                              <Font name="Arial Bold" size="18.0" />
+                           </font>
+                        </Text>
+                        <Label text=" " />
+                        <Text fx:id="glassMaterial" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+                           <font>
+                              <Font name="Arial" size="18.0" />
+                           </font>
+                        </Text>
+                     </children>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </TextFlow>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Dimensions" underline="true">
+                     <font>
+                        <Font name="Arial" size="18.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets top="20.0" />
+                     </VBox.margin>
+                  </Text>
+                  <TextFlow prefHeight="0.0" prefWidth="122.0">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Diameter:">
+                           <font>
+                              <Font name="Arial Bold" size="18.0" />
+                           </font>
+                        </Text>
+                        <Label text=" " />
+                        <Text fx:id="diameter" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+                           <font>
+                              <Font name="Arial" size="18.0" />
+                           </font>
+                        </Text>
+                     </children>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </TextFlow>
+                  <TextFlow prefHeight="0.0" prefWidth="122.0">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Lug to lug:">
+                           <font>
+                              <Font name="Arial Bold" size="18.0" />
+                           </font>
+                        </Text>
+                        <Label text=" " />
+                        <Text fx:id="lugToLug" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+                           <font>
+                              <Font name="Arial" size="18.0" />
+                           </font>
+                        </Text>
+                     </children>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </TextFlow>
+                  <TextFlow prefHeight="0.0" prefWidth="122.0">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Thickness:">
+                           <font>
+                              <Font name="Arial Bold" size="18.0" />
+                           </font>
+                        </Text>
+                        <Label text=" " />
+                        <Text fx:id="thickness" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+                           <font>
+                              <Font name="Arial" size="18.0" />
+                           </font>
+                        </Text>
+                     </children>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </TextFlow>
+                  <TextFlow prefHeight="0.0" prefWidth="122.0">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Handle distance:">
+                           <font>
+                              <Font name="Arial Bold" size="18.0" />
+                           </font>
+                        </Text>
+                        <Label text=" " />
+                        <Text fx:id="handle" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+                           <font>
+                              <Font name="Arial" size="18.0" />
+                           </font>
+                        </Text>
+                     </children>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </TextFlow>
+               </children>
+            </VBox>
+            <VBox prefHeight="768.0" prefWidth="354.0">
+               <HBox.margin>
+                  <Insets left="20.0" top="50.0" />
+               </HBox.margin>
+               <children>
+                  <Text fx:id="handle1" strokeType="OUTSIDE" strokeWidth="0.0" text="Movement" underline="true">
+                     <font>
+                        <Font name="Arial" size="18.0" />
+                     </font>
+                  </Text>
+                  <TextFlow prefHeight="0.0" prefWidth="122.0">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <children>
+                        <Text fx:id="watchMaker" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+                           <font>
+                              <Font name="Arial Bold" size="24.0" />
+                           </font>
+                        </Text>
+                        <Label text=" " />
+                        <Text fx:id="movementName" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+                           <font>
+                              <Font name="Arial Bold" size="24.0" />
+                           </font>
+                        </Text>
+                     </children>
+                     <VBox.margin>
+                        <Insets top="20.0" />
+                     </VBox.margin>
+                  </TextFlow>
+                  <TextFlow prefHeight="0.0" prefWidth="122.0">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Type:">
+                           <font>
+                              <Font name="Arial Bold" size="18.0" />
+                           </font>
+                        </Text>
+                        <Label text=" " />
+                        <Text fx:id="movementType" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+                           <font>
+                              <Font name="Arial" size="18.0" />
+                           </font>
+                        </Text>
+                     </children>
+                     <VBox.margin>
+                        <Insets top="20.0" />
+                     </VBox.margin>
+                  </TextFlow>
+                  <TextFlow prefHeight="0.0" prefWidth="122.0">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Power reserve:">
+                           <font>
+                              <Font name="Arial Bold" size="18.0" />
+                           </font>
+                        </Text>
+                        <Label text=" " />
+                        <Text fx:id="reserve" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+                           <font>
+                              <Font name="Arial" size="18.0" />
+                           </font>
+                        </Text>
+                     </children>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </TextFlow>
+                  <TextFlow prefHeight="0.0" prefWidth="122.0">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Frequency:">
+                           <font>
+                              <Font name="Arial Bold" size="18.0" />
+                           </font>
+                        </Text>
+                        <Label text=" " />
+                        <Text fx:id="frequency" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+                           <font>
+                              <Font name="Arial" size="18.0" />
+                           </font>
+                        </Text>
+                     </children>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </TextFlow>
+                  <TextFlow prefHeight="0.0" prefWidth="122.0">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Jewels:">
+                           <font>
+                              <Font name="Arial Bold" size="18.0" />
+                           </font>
+                        </Text>
+                        <Label text=" " />
+                        <Text fx:id="jewels" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+                           <font>
+                              <Font name="Arial" size="18.0" />
+                           </font>
+                        </Text>
+                     </children>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </TextFlow>
+                  <TextFlow prefHeight="0.0" prefWidth="122.0">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Cosc certification:">
+                           <font>
+                              <Font name="Arial Bold" size="18.0" />
+                           </font>
+                        </Text>
+                        <Label text=" " />
+                        <Text fx:id="coscCertification" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+                           <font>
+                              <Font name="Arial" size="18.0" />
+                           </font>
+                        </Text>
+                     </children>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </TextFlow>
+                  <TextFlow prefHeight="0.0" prefWidth="122.0">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Complication:">
+                           <font>
+                              <Font name="Arial Bold" size="18.0" />
+                           </font>
+                        </Text>
+                        <Label text=" " />
+                        <Text fx:id="complication" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+                           <font>
+                              <Font name="Arial" size="18.0" />
+                           </font>
+                        </Text>
+                     </children>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </TextFlow>
+                  <ImageView fx:id="movementImage" fitHeight="340.0" fitWidth="340.0" pickOnBounds="true" preserveRatio="true">
+                     <VBox.margin>
+                        <Insets top="20.0" />
+                     </VBox.margin>
+                  </ImageView>
+                  <HBox prefHeight="19.0" prefWidth="354.0">
+                     <children>
+                        <Button fx:id="addCollection" mnemonicParsing="false" text="Add to collection">
+                           <font>
+                              <Font name="Arial" size="18.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="addWishlist" mnemonicParsing="false" text="Add to wishlist">
+                           <HBox.margin>
+                              <Insets left="50.0" />
+                           </HBox.margin>
+                           <font>
+                              <Font name="Arial" size="18.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </HBox>
+               </children></VBox>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>
