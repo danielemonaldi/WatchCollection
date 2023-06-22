@@ -63,7 +63,7 @@ public enum OntologyQuery {
             "PREFIX foaf: <http://xmlns.com/foaf/0.1/>\n" +
             "PREFIX wa: <http://www.unicam.it/WatchCollection#>\n" +
             "\n" +
-            "SELECT ?watchMaker ?movementName ?movementType ?reserve ?jewels ?frequency ?coscCertification ?movementImage ?complicationName\n" +
+            "SELECT ?watchMaker ?movementName ?rotor ?reserve ?jewels ?frequency ?coscCertification ?movementImage ?complicationName\n" +
             "WHERE {\n" +
             "  ?reference rdf:type wa:Reference .\n" +
             "  ?reference wa:reference ?referenceString .\n" +
@@ -71,7 +71,7 @@ public enum OntologyQuery {
             "  ?movement foaf:maker ?organization .\n" +
             "  ?organization foaf:name ?watchMaker .\n" +
             "  ?movement foaf:name ?movementName .\n" +
-            "  ?movement wa:movementType ?movementType .\n" +
+            "  ?movement wa:rotor ?rotor .\n" +
             "  ?movement wa:reserve ?reserve .\n" +
             "  ?movement wa:jewels ?jewels .\n" +
             "  ?movement wa:frequency ?frequency .\n" +

@@ -102,8 +102,8 @@ public class DetailsController {
 
     private void setData(String reference) {
 
-        ArrayList<LinkedHashMap<String, String>> detailsList = database.getWatchDetails(reference);
-        LinkedHashMap<String, String> details = detailsList.get(0);
+        ArrayList<LinkedHashMap<String, String>> detailData = database.getWatchDetails(reference);
+        LinkedHashMap<String, String> details = detailData.get(0);
 
         Image returnImage = new Image("images/return.png");
         close.setGraphic(new ImageView(returnImage));
@@ -121,20 +121,24 @@ public class DetailsController {
         strapMaterial.setText(details.get("strapMaterialName"));
         glassMaterial.setText(details.get("glassMaterialName"));
 
-        ArrayList<LinkedHashMap<String, String>> dimensionList = database.getWatchDimension(reference);
-        LinkedHashMap<String, String> dimension = dimensionList.get(0);
+        ArrayList<LinkedHashMap<String, String>> dimensionData = database.getWatchDimension(reference);
+        LinkedHashMap<String, String> dimension = dimensionData.get(0);
 
         diameter.setText(dimension.get("diameter") + " mm");
         lugToLug.setText(dimension.get("lugToLug") + " mm");
         thickness.setText(dimension.get("thickness") + " mm");
         handle.setText(dimension.get("handle") + " mm");
 
-        ArrayList<LinkedHashMap<String, String>> movementList = database.getWatchMovement(reference);
-        LinkedHashMap<String, String> movement = movementList.get(0);
+        ArrayList<LinkedHashMap<String, String>> movementData = database.getWatchMovement(reference);
+        LinkedHashMap<String, String> movement = movementData.get(0);
 
         watchMaker.setText(movement.get("watchMaker"));
+
+        if (movement.get("rotor").equals("true")) {
+            movementType.setText("Mechanical - Automatic winding");
+        } else movementType.setText("Mechanical - Manual winding");
+
         movementName.setText(movement.get("movementName"));
-        movementType.setText(movement.get("movementType"));
         reserve.setText(movement.get("reserve") + " h");
         jewels.setText(movement.get("jewels"));
         frequency.setText(movement.get("frequency") + " VHP");
