@@ -55,14 +55,17 @@ public class CardController {
             DetailsController detailsController = fxmlLoader.getController();
             detailsController.setReference(reference.getText());
 
-            Stage stage = new Stage();
-            stage.setScene(new Scene(root));
+            Stage currentStage = (Stage) reference.getScene().getWindow();
+            currentStage.hide();
 
-            stage.getIcons().add(new Image("images/icon.png"));
-            stage.setTitle("Watch Collection - " + organizationName.getText() + " " + modelName.getText() + " " + reference.getText());
-            stage.setResizable(false);
+            Stage detailsStage = new Stage();
+            detailsStage.setScene(new Scene(root));
+            detailsStage.getIcons().add(new Image("images/icon.png"));
+            detailsStage.setTitle("Watch Collection - " + organizationName.getText() + " " + modelName.getText() + " " + reference.getText());
+            detailsStage.setResizable(false);
 
-            stage.showAndWait();
+            detailsStage.setOnHidden(event -> currentStage.show());
+            detailsStage.showAndWait();
 
         } catch (IOException e) {
             throw new RuntimeException(e);

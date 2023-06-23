@@ -6,7 +6,6 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import org.apache.jena.base.Sys;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -19,7 +18,6 @@ public class DetailsController {
 
     @FXML
     private ImageView movementImage;
-
 
     @FXML
     private Text caseMaterial;
@@ -93,7 +91,15 @@ public class DetailsController {
     @FXML
     private Text watchMaker;
 
-    Database database = new Database();
+    @FXML
+    private Button addCollection;
+
+    @FXML
+    private Button addWishlist;
+
+    private final String userEmail = "user@gmail.com";
+    DatabaseUtility database = new DatabaseUtility();
+    WishlistUtility wishlist = new WishlistUtility();
 
     public void setReference(String reference) {
         setData(reference);
@@ -101,6 +107,7 @@ public class DetailsController {
 
     public void initialize() throws IOException {
         close.setOnAction(event -> closeCurrentWindow());
+        addWishlist.setOnAction(event -> addWatchWishlist());
     }
 
     private void setData(String reference) {
@@ -163,6 +170,10 @@ public class DetailsController {
 
         Image movImage = new Image(movement.get("movementImage"));
         movementImage.setImage(movImage);
+    }
+
+    private void addWatchWishlist() {
+        wishlist.addWatchWishlist(this.userEmail, referenceString.getText());
     }
 
     private void closeCurrentWindow() {

@@ -81,16 +81,31 @@ public enum OntologyQuery {
             "  OPTIONAL { ?movement wa:batteryType ?batteryType . } \n" +
             "}"),
 
-    ADD_WATCH_WISHLIST("PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n" +
+    GET_USER_WISHLIST("PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n" +
             "PREFIX foaf: <http://xmlns.com/foaf/0.1/>\n" +
             "PREFIX wa: <http://www.unicam.it/WatchCollection#>\n" +
             "\n" +
-            "INSERT DATA { \n" +
-            "  ?wishlist wa:contains ?reference .\n" +
-            "}\n" +
+            "SELECT ?watchImage ?organizationName ?modelName ?referenceString\n" +
             "WHERE {\n" +
+            "  ?user rdf:type wa:User .\n" +
+            "  ?user wa:email ?email .\n" +
+            "  ?user wa:owns ?wishlist .\n" +
             "  ?wishlist rdf:type wa:Wishlist .\n" +
-            "  ?reference rdf:type wa:Reference .\n" +
+            "  ?wishlist wa:contains ?reference .\n" +
+            "  ?organization rdf:type foaf:Organization .\n" +
+            "  ?organization foaf:name ?organizationName .\n" +
+            "  ?organization foaf:made ?model .\n" +
+            "  ?model foaf:name ?modelName .\n" +
+            "  ?model wa:hasReference ?reference .\n" +
+            "  ?reference wa:reference ?referenceString .\n" +
+            "  ?reference wa:imageLink ?watchImage .\n" +
+            "}"),
+
+    ADD_WATCH_WISHLIST("PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n" +
+            "PREFIX foaf: <http://xmlns.com/foaf/0.1/>\n" +
+            "PREFIX wa: <http://www.unicam.it/WatchCollection#>\n" +
+            "INSERT DATA { \n" +
+            "  wa:UserWishlist wa:contains wa:116500LN .\n" +
             "}");
 
     private final String query;

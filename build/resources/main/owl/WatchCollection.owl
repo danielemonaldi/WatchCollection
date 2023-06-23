@@ -138,7 +138,14 @@
         <owl:inverseOf rdf:resource="http://www.unicam.it/WatchCollection#owns"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
-        <rdfs:domain rdf:resource="http://www.unicam.it/WatchCollection#Collection"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.unicam.it/WatchCollection#Collection"/>
+                    <rdf:Description rdf:about="http://www.unicam.it/WatchCollection#Wishlist"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
         <rdfs:range rdf:resource="http://www.unicam.it/WatchCollection#User"/>
     </owl:ObjectProperty>
     
@@ -361,7 +368,7 @@
     <owl:DatatypeProperty rdf:about="http://www.unicam.it/WatchCollection#email">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
         <rdfs:domain rdf:resource="http://www.unicam.it/WatchCollection#User"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment xml:lang="en">Indicates an account user&apos;s email, used for authentication.</rdfs:comment>
     </owl:DatatypeProperty>
     
@@ -1009,33 +1016,39 @@
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.unicam.it/WatchCollection#owns"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.unicam.it/WatchCollection#Wishlist"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.unicam.it/WatchCollection#email"/>
                 <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.unicam.it/WatchCollection#password"/>
                 <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://xmlns.com/foaf/0.1/name"/>
                 <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://xmlns.com/foaf/0.1/surname"/>
                 <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <rdfs:comment xml:lang="en">The class contains the users of the platform, who possibly can have a collection.</rdfs:comment>
     </owl:Class>
     
 
@@ -1468,6 +1481,28 @@
     
 
 
+    <!-- http://www.unicam.it/WatchCollection#User -->
+
+    <owl:NamedIndividual rdf:about="http://www.unicam.it/WatchCollection#User">
+        <rdf:type rdf:resource="http://www.unicam.it/WatchCollection#User"/>
+        <WatchCollection:owns rdf:resource="http://www.unicam.it/WatchCollection#UserWishlist"/>
+        <WatchCollection:email>user@gmail.com</WatchCollection:email>
+        <WatchCollection:password>1234</WatchCollection:password>
+        <foaf:name>User</foaf:name>
+        <foaf:surname>User</foaf:surname>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.unicam.it/WatchCollection#UserWishlist -->
+
+    <owl:NamedIndividual rdf:about="http://www.unicam.it/WatchCollection#UserWishlist">
+        <rdf:type rdf:resource="http://www.unicam.it/WatchCollection#Wishlist"/>
+        <WatchCollection:contains rdf:resource="http://www.unicam.it/WatchCollection#116500LN"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.unicam.it/WatchCollection#116500LN -->
 
     <owl:NamedIndividual rdf:about="http://www.unicam.it/WatchCollection#116500LN">
@@ -1534,6 +1569,20 @@
         <WatchCollection:reference>310.30.42.50.01.001</WatchCollection:reference>
         <WatchCollection:waterResistance rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">50</WatchCollection:waterResistance>
     </owl:NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotations
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description rdf:about="http://www.unicam.it/WatchCollection#User">
+        <rdfs:comment xml:lang="en">The class contains the users of the platform, who possibly can have a collection.</rdfs:comment>
+    </rdf:Description>
 </rdf:RDF>
 
 

@@ -9,7 +9,7 @@ import org.apache.jena.update.UpdateRequest;
 import java.util.ArrayList;
 
 public class QueryExecutor {
-    public static ArrayList<QuerySolution> selectQuery(Model model, String query) {
+    public static ArrayList<QuerySolution> selectDataQuery(Model model, String query) {
 
         ArrayList<QuerySolution> resultList = new ArrayList<>();
 

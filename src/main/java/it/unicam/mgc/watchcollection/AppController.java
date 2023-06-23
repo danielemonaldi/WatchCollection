@@ -19,6 +19,9 @@ public class AppController {
     private TilePane collectionTilePane;
 
     @FXML
+    private TilePane wishlistTilePane;
+
+    @FXML
     private Tab databaseTab;
 
     @FXML
@@ -27,10 +30,14 @@ public class AppController {
     @FXML
     private Tab wishlistTab;
 
-    Database database = new Database();
+    private final String userEmail = "user@gmail.com";
+
+    DatabaseUtility database = new DatabaseUtility();
+    WishlistUtility wishlist = new WishlistUtility();
 
     public void initialize() throws IOException {
         createDatabaseCards();
+        createWishlistCards();
     }
 
     private void createDatabaseCards() throws IOException {
@@ -65,7 +72,7 @@ public class AppController {
 
     private void createWishlistCards() throws IOException {
 
-        ArrayList<LinkedHashMap<String, String>> hashMapSet = database.getAllWatches();
+        ArrayList<LinkedHashMap<String, String>> hashMapSet = wishlist.getUserWishlist(this.userEmail);
 
         for (LinkedHashMap<String, String> hashMap : hashMapSet) {
             FXMLLoader fxmlLoader = new FXMLLoader();
@@ -73,7 +80,7 @@ public class AppController {
             VBox vBox = fxmlLoader.load();
             CardController cardController = fxmlLoader.getController();
             cardController.setData(hashMap);
-            collectionTilePane.getChildren().add(vBox);
+            wishlistTilePane.getChildren().add(vBox);
         }
 
     }
