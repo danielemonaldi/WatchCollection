@@ -35,7 +35,7 @@ public enum OntologyQuery {
             "  ?reference wa:listPrice ?listPrice .\n" +
             "  ?reference wa:waterResistance ?waterResistance .\n" +
             "  ?reference wa:hasWatchType ?watchType .\n" +
-            "  ?watchType wa:type ?watchTypeName .\n" +
+            "  ?watchType foaf:name ?watchTypeName .\n" +
             "  ?reference wa:hasCaseMaterial ?caseMaterial .\n" +
             "  ?reference wa:hasStrapMaterial ?strapMaterial .\n" +
             "  ?reference wa:hasGlassMaterial ?glassMaterial .\n" +
@@ -75,7 +75,7 @@ public enum OntologyQuery {
             "  ?movement wa:jewels ?jewels . \n" +
             "  ?movement wa:coscCertification ?coscCertification .\n" +
             "  ?movement wa:hasComplication ?complication .\n" +
-            "  ?complication wa:complication ?complicationName .\n" +
+            "  ?complication foaf:name ?complicationName .\n" +
             "  OPTIONAL { ?movement wa:rotor ?rotor . } \n" +
             "  OPTIONAL { ?movement wa:frequency ?frequency . } \n" +
             "  OPTIONAL { ?movement wa:batteryType ?batteryType . } \n" +

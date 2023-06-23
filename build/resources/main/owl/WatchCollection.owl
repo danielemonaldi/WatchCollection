@@ -590,10 +590,12 @@
         <rdfs:domain>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.unicam.it/WatchCollection#Complication"/>
                     <rdf:Description rdf:about="http://www.unicam.it/WatchCollection#Material"/>
                     <rdf:Description rdf:about="http://www.unicam.it/WatchCollection#Model"/>
                     <rdf:Description rdf:about="http://www.unicam.it/WatchCollection#Movement"/>
                     <rdf:Description rdf:about="http://www.unicam.it/WatchCollection#User"/>
+                    <rdf:Description rdf:about="http://www.unicam.it/WatchCollection#WatchType"/>
                     <rdf:Description rdf:about="http://xmlns.com/foaf/0.1/Group"/>
                     <rdf:Description rdf:about="http://xmlns.com/foaf/0.1/Organization"/>
                 </owl:unionOf>
@@ -677,7 +679,7 @@
     <owl:Class rdf:about="http://www.unicam.it/WatchCollection#Complication">
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.unicam.it/WatchCollection#complication"/>
+                <owl:onProperty rdf:resource="http://xmlns.com/foaf/0.1/name"/>
                 <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
                 <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
             </owl:Restriction>
@@ -1107,7 +1109,7 @@
     <owl:Class rdf:about="http://www.unicam.it/WatchCollection#WatchType">
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.unicam.it/WatchCollection#type"/>
+                <owl:onProperty rdf:resource="http://xmlns.com/foaf/0.1/name"/>
                 <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
                 <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
             </owl:Restriction>
@@ -1205,7 +1207,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.unicam.it/WatchCollection#Chronograph">
         <rdf:type rdf:resource="http://www.unicam.it/WatchCollection#WatchType"/>
-        <WatchCollection:type>Chronograph</WatchCollection:type>
+        <foaf:name>Chronograph</foaf:name>
     </owl:NamedIndividual>
     
 
@@ -1214,7 +1216,29 @@
 
     <owl:NamedIndividual rdf:about="http://www.unicam.it/WatchCollection#ChronographComplication">
         <rdf:type rdf:resource="http://www.unicam.it/WatchCollection#Complication"/>
-        <WatchCollection:complication>Chronograph</WatchCollection:complication>
+        <foaf:name>Chronograph</foaf:name>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.unicam.it/WatchCollection#ChronomasterOrginal -->
+
+    <owl:NamedIndividual rdf:about="http://www.unicam.it/WatchCollection#ChronomasterOrginal">
+        <rdf:type rdf:resource="http://www.unicam.it/WatchCollection#Model"/>
+        <foaf:maker rdf:resource="http://www.unicam.it/WatchCollection#Zenith"/>
+        <foaf:name>Chronomaster Original</foaf:name>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.unicam.it/WatchCollection#ChronomasterOrginalDimension -->
+
+    <owl:NamedIndividual rdf:about="http://www.unicam.it/WatchCollection#ChronomasterOrginalDimension">
+        <rdf:type rdf:resource="http://www.unicam.it/WatchCollection#Dimension"/>
+        <WatchCollection:diameter rdf:datatype="http://www.w3.org/2001/XMLSchema#float">38.0</WatchCollection:diameter>
+        <WatchCollection:handle rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">19</WatchCollection:handle>
+        <WatchCollection:lugToLug rdf:datatype="http://www.w3.org/2001/XMLSchema#float">44.2</WatchCollection:lugToLug>
+        <WatchCollection:thickness rdf:datatype="http://www.w3.org/2001/XMLSchema#float">12.9</WatchCollection:thickness>
     </owl:NamedIndividual>
     
 
@@ -1233,7 +1257,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.unicam.it/WatchCollection#DateComplication">
         <rdf:type rdf:resource="http://www.unicam.it/WatchCollection#Complication"/>
-        <WatchCollection:complication>Date</WatchCollection:complication>
+        <foaf:name>Date</foaf:name>
     </owl:NamedIndividual>
     
 
@@ -1264,7 +1288,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.unicam.it/WatchCollection#DayDateComplication">
         <rdf:type rdf:resource="http://www.unicam.it/WatchCollection#Complication"/>
-        <WatchCollection:complication>Day-Date</WatchCollection:complication>
+        <foaf:name>Day-Date</foaf:name>
     </owl:NamedIndividual>
     
 
@@ -1281,6 +1305,23 @@
     
 
 
+    <!-- http://www.unicam.it/WatchCollection#ElPrimero3600 -->
+
+    <owl:NamedIndividual rdf:about="http://www.unicam.it/WatchCollection#ElPrimero3600">
+        <rdf:type rdf:resource="http://www.unicam.it/WatchCollection#Movement"/>
+        <WatchCollection:hasComplication rdf:resource="http://www.unicam.it/WatchCollection#ChronographComplication"/>
+        <foaf:maker rdf:resource="http://www.unicam.it/WatchCollection#Zenith"/>
+        <WatchCollection:coscCertification rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</WatchCollection:coscCertification>
+        <WatchCollection:frequency rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">36000</WatchCollection:frequency>
+        <WatchCollection:imageLink>https://giornaleorologi.it/wp-content/uploads/2021/02/El-Primero-3600.jpg</WatchCollection:imageLink>
+        <WatchCollection:jewels rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">35</WatchCollection:jewels>
+        <WatchCollection:reserve rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">60</WatchCollection:reserve>
+        <WatchCollection:rotor rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</WatchCollection:rotor>
+        <foaf:name>El Primero 3600</foaf:name>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.unicam.it/WatchCollection#L34104936 -->
 
     <owl:NamedIndividual rdf:about="http://www.unicam.it/WatchCollection#L34104936">
@@ -1292,11 +1333,29 @@
         <WatchCollection:hasMovement rdf:resource="http://www.unicam.it/WatchCollection#LonginesL8884"/>
         <WatchCollection:hasStrapMaterial rdf:resource="http://www.unicam.it/WatchCollection#StainlessSteel"/>
         <WatchCollection:hasWatchType rdf:resource="http://www.unicam.it/WatchCollection#3hands"/>
-        <WatchCollection:imageLink>https://www.fabioferro.eu/wp-content/uploads/orologio-longines-spirit-blu-acciaio-l34104936-5.jpg</WatchCollection:imageLink>
+        <WatchCollection:imageLink>https://www.astrua.com/images/thumbs/0088687_longines-spirit-37-mm-ref-l34104936.jpeg</WatchCollection:imageLink>
         <WatchCollection:introductionYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2020</WatchCollection:introductionYear>
         <WatchCollection:listPrice rdf:datatype="http://www.w3.org/2001/XMLSchema#float">2700.0</WatchCollection:listPrice>
         <WatchCollection:reference>L.3.410.4.93.6</WatchCollection:reference>
         <WatchCollection:waterResistance rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">100</WatchCollection:waterResistance>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.unicam.it/WatchCollection#LVHM -->
+
+    <owl:NamedIndividual rdf:about="http://www.unicam.it/WatchCollection#LVHM">
+        <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Group"/>
+        <foaf:name>LVHM</foaf:name>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.unicam.it/WatchCollection#Leather -->
+
+    <owl:NamedIndividual rdf:about="http://www.unicam.it/WatchCollection#Leather">
+        <rdf:type rdf:resource="http://www.unicam.it/WatchCollection#Material"/>
+        <foaf:name>Leather</foaf:name>
     </owl:NamedIndividual>
     
 
@@ -1369,6 +1428,15 @@
     
 
 
+    <!-- http://www.unicam.it/WatchCollection#Platinum -->
+
+    <owl:NamedIndividual rdf:about="http://www.unicam.it/WatchCollection#Platinum">
+        <rdf:type rdf:resource="http://www.unicam.it/WatchCollection#Material"/>
+        <foaf:name>Platinum</foaf:name>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.unicam.it/WatchCollection#Rolex -->
 
     <owl:NamedIndividual rdf:about="http://www.unicam.it/WatchCollection#Rolex">
@@ -1396,9 +1464,9 @@
     
 
 
-    <!-- http://www.unicam.it/WatchCollection#Rolex4130 -->
+    <!-- http://www.unicam.it/WatchCollection#Rolex4131 -->
 
-    <owl:NamedIndividual rdf:about="http://www.unicam.it/WatchCollection#Rolex4130">
+    <owl:NamedIndividual rdf:about="http://www.unicam.it/WatchCollection#Rolex4131">
         <rdf:type rdf:resource="http://www.unicam.it/WatchCollection#Movement"/>
         <WatchCollection:hasComplication rdf:resource="http://www.unicam.it/WatchCollection#ChronographComplication"/>
         <foaf:maker rdf:resource="http://www.unicam.it/WatchCollection#Rolex"/>
@@ -1408,7 +1476,7 @@
         <WatchCollection:jewels rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">44</WatchCollection:jewels>
         <WatchCollection:reserve rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">72</WatchCollection:reserve>
         <WatchCollection:rotor rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</WatchCollection:rotor>
-        <foaf:name>4130</foaf:name>
+        <foaf:name>4131</foaf:name>
     </owl:NamedIndividual>
     
 
@@ -1498,26 +1566,57 @@
 
     <owl:NamedIndividual rdf:about="http://www.unicam.it/WatchCollection#UserWishlist">
         <rdf:type rdf:resource="http://www.unicam.it/WatchCollection#Wishlist"/>
-        <WatchCollection:contains rdf:resource="http://www.unicam.it/WatchCollection#116500LN"/>
+        <WatchCollection:contains rdf:resource="http://www.unicam.it/WatchCollection#126506"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://www.unicam.it/WatchCollection#116500LN -->
+    <!-- http://www.unicam.it/WatchCollection#Zenith -->
 
-    <owl:NamedIndividual rdf:about="http://www.unicam.it/WatchCollection#116500LN">
+    <owl:NamedIndividual rdf:about="http://www.unicam.it/WatchCollection#Zenith">
+        <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Organization"/>
+        <WatchCollection:member rdf:resource="http://www.unicam.it/WatchCollection#LVHM"/>
+        <WatchCollection:city>Le Locle</WatchCollection:city>
+        <foaf:name>Zenith</foaf:name>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.unicam.it/WatchCollection#0332003600 -->
+
+    <owl:NamedIndividual rdf:about="http://www.unicam.it/WatchCollection#0332003600">
         <rdf:type rdf:resource="http://www.unicam.it/WatchCollection#Reference"/>
         <WatchCollection:hasCaseMaterial rdf:resource="http://www.unicam.it/WatchCollection#StainlessSteel"/>
+        <WatchCollection:hasDimension rdf:resource="http://www.unicam.it/WatchCollection#ChronomasterOrginalDimension"/>
+        <WatchCollection:hasGlassMaterial rdf:resource="http://www.unicam.it/WatchCollection#Sapphire"/>
+        <WatchCollection:hasModel rdf:resource="http://www.unicam.it/WatchCollection#ChronomasterOrginal"/>
+        <WatchCollection:hasMovement rdf:resource="http://www.unicam.it/WatchCollection#ElPrimero3600"/>
+        <WatchCollection:hasStrapMaterial rdf:resource="http://www.unicam.it/WatchCollection#Leather"/>
+        <WatchCollection:hasWatchType rdf:resource="http://www.unicam.it/WatchCollection#Chronograph"/>
+        <WatchCollection:imageLink>https://cdn.shopify.com/s/files/1/0520/9554/9621/products/58-1_f3334fe0-bca8-447c-b0f4-1245d3b809bc.jpg?v=1675372883</WatchCollection:imageLink>
+        <WatchCollection:introductionYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2021</WatchCollection:introductionYear>
+        <WatchCollection:listPrice rdf:datatype="http://www.w3.org/2001/XMLSchema#float">9900.0</WatchCollection:listPrice>
+        <WatchCollection:reference>03.3200.3600/34.C869</WatchCollection:reference>
+        <WatchCollection:waterResistance rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">50</WatchCollection:waterResistance>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.unicam.it/WatchCollection#126506 -->
+
+    <owl:NamedIndividual rdf:about="http://www.unicam.it/WatchCollection#126506">
+        <rdf:type rdf:resource="http://www.unicam.it/WatchCollection#Reference"/>
+        <WatchCollection:hasCaseMaterial rdf:resource="http://www.unicam.it/WatchCollection#Platinum"/>
         <WatchCollection:hasDimension rdf:resource="http://www.unicam.it/WatchCollection#DaytonaDimension"/>
         <WatchCollection:hasGlassMaterial rdf:resource="http://www.unicam.it/WatchCollection#Sapphire"/>
         <WatchCollection:hasModel rdf:resource="http://www.unicam.it/WatchCollection#CosmographDaytona"/>
-        <WatchCollection:hasMovement rdf:resource="http://www.unicam.it/WatchCollection#Rolex4130"/>
-        <WatchCollection:hasStrapMaterial rdf:resource="http://www.unicam.it/WatchCollection#StainlessSteel"/>
+        <WatchCollection:hasMovement rdf:resource="http://www.unicam.it/WatchCollection#Rolex4131"/>
+        <WatchCollection:hasStrapMaterial rdf:resource="http://www.unicam.it/WatchCollection#Platinum"/>
         <WatchCollection:hasWatchType rdf:resource="http://www.unicam.it/WatchCollection#Chronograph"/>
-        <WatchCollection:imageLink>https://luxwatch.it/orologi/wp-content/uploads/2018/09/Rolex-Daytona-116500ln-0001.jpg</WatchCollection:imageLink>
-        <WatchCollection:introductionYear rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">2016</WatchCollection:introductionYear>
-        <WatchCollection:listPrice rdf:datatype="http://www.w3.org/2001/XMLSchema#float">12400.0</WatchCollection:listPrice>
-        <WatchCollection:reference>116500LN</WatchCollection:reference>
+        <WatchCollection:imageLink>https://s.turbifycdn.com/aah/movadobaby/rolex-cosmograph-daytona-platinum-126506-0001-44.jpg</WatchCollection:imageLink>
+        <WatchCollection:introductionYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2023</WatchCollection:introductionYear>
+        <WatchCollection:listPrice rdf:datatype="http://www.w3.org/2001/XMLSchema#float">65400.0</WatchCollection:listPrice>
+        <WatchCollection:reference>126506</WatchCollection:reference>
         <WatchCollection:waterResistance rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">100</WatchCollection:waterResistance>
     </owl:NamedIndividual>
     
@@ -1547,7 +1646,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.unicam.it/WatchCollection#3hands">
         <rdf:type rdf:resource="http://www.unicam.it/WatchCollection#WatchType"/>
-        <WatchCollection:type>3 Hands</WatchCollection:type>
+        <foaf:name>3 Hands</foaf:name>
     </owl:NamedIndividual>
     
 
@@ -1563,7 +1662,7 @@
         <WatchCollection:hasMovement rdf:resource="http://www.unicam.it/WatchCollection#Omega3861"/>
         <WatchCollection:hasStrapMaterial rdf:resource="http://www.unicam.it/WatchCollection#StainlessSteel"/>
         <WatchCollection:hasWatchType rdf:resource="http://www.unicam.it/WatchCollection#Chronograph"/>
-        <WatchCollection:imageLink>https://www.omegawatches.com/media/catalog/product/cache/a5c37fddc1a529a1a44fea55d527b9a116f3738da3a2cc38006fcc613c37c391/o/m/omega-speedmaster-moonwatch-professional-co-axial-master-chronometer-chronograph-42-mm-31030425001001-l.png</WatchCollection:imageLink>
+        <WatchCollection:imageLink>https://www.astrua.com/images/thumbs/0069971_omega-speedmaster-moonwatch-professional-coaxial-master-chronometer-chronograph-42-mm-ref-3103042500_600.jpeg</WatchCollection:imageLink>
         <WatchCollection:introductionYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2021</WatchCollection:introductionYear>
         <WatchCollection:listPrice rdf:datatype="http://www.w3.org/2001/XMLSchema#float">7600.0</WatchCollection:listPrice>
         <WatchCollection:reference>310.30.42.50.01.001</WatchCollection:reference>
