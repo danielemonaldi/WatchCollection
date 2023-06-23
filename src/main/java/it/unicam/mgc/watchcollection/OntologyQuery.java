@@ -58,12 +58,11 @@ public enum OntologyQuery {
             "  ?dimension wa:thickness ?thickness .\n" +
             "  ?dimension wa:handle ?handle .\n" +
             "}"),
-
     GET_WATCH_MOVEMENT("PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n" +
             "PREFIX foaf: <http://xmlns.com/foaf/0.1/>\n" +
             "PREFIX wa: <http://www.unicam.it/WatchCollection#>\n" +
             "\n" +
-            "SELECT ?watchMaker ?movementName ?rotor ?reserve ?jewels ?frequency ?coscCertification ?movementImage ?complicationName\n" +
+            "SELECT ?watchMaker ?movementName ?rotor ?reserve ?jewels ?frequency ?coscCertification ?batteryType ?movementImage ?complicationName\n" +
             "WHERE {\n" +
             "  ?reference rdf:type wa:Reference .\n" +
             "  ?reference wa:reference ?referenceString .\n" +
@@ -71,14 +70,27 @@ public enum OntologyQuery {
             "  ?movement foaf:maker ?organization .\n" +
             "  ?organization foaf:name ?watchMaker .\n" +
             "  ?movement foaf:name ?movementName .\n" +
-            "  ?movement wa:rotor ?rotor .\n" +
-            "  ?movement wa:reserve ?reserve .\n" +
-            "  ?movement wa:jewels ?jewels .\n" +
-            "  ?movement wa:frequency ?frequency .\n" +
-            "  ?movement wa:coscCertification ?coscCertification .\n" +
             "  ?movement wa:imageLink ?movementImage .\n" +
+            "  ?movement wa:reserve ?reserve . \n" +
+            "  ?movement wa:jewels ?jewels . \n" +
+            "  ?movement wa:coscCertification ?coscCertification .\n" +
             "  ?movement wa:hasComplication ?complication .\n" +
             "  ?complication wa:complication ?complicationName .\n" +
+            "  OPTIONAL { ?movement wa:rotor ?rotor . } \n" +
+            "  OPTIONAL { ?movement wa:frequency ?frequency . } \n" +
+            "  OPTIONAL { ?movement wa:batteryType ?batteryType . } \n" +
+            "}"),
+
+    ADD_WATCH_WISHLIST("PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n" +
+            "PREFIX foaf: <http://xmlns.com/foaf/0.1/>\n" +
+            "PREFIX wa: <http://www.unicam.it/WatchCollection#>\n" +
+            "\n" +
+            "INSERT DATA { \n" +
+            "  ?wishlist wa:contains ?reference .\n" +
+            "}\n" +
+            "WHERE {\n" +
+            "  ?wishlist rdf:type wa:Wishlist .\n" +
+            "  ?reference rdf:type wa:Reference .\n" +
             "}");
 
     private final String query;

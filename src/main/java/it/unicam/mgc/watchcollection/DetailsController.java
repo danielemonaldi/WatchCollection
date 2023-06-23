@@ -79,7 +79,10 @@ public class DetailsController {
     private Text jewels;
 
     @FXML
-    private Text frequency;
+    private Text varText;
+
+    @FXML
+    private Text varValue;
 
     @FXML
     private Text coscCertification;
@@ -133,15 +136,24 @@ public class DetailsController {
         LinkedHashMap<String, String> movement = movementData.get(0);
 
         watchMaker.setText(movement.get("watchMaker"));
+        movementName.setText(movement.get("movementName"));
 
         if (movement.get("rotor").equals("true")) {
-            movementType.setText("Mechanical - Automatic winding");
-        } else movementType.setText("Mechanical - Manual winding");
+            movementType.setText("Mechanical Movement- Automatic winding");
+        } else if ((movement.get("rotor").equals("false"))) {
+            movementType.setText("Mechanical Movement - Manual winding");
+        } else movementType.setText("Quartz Movement");
 
-        movementName.setText(movement.get("movementName"));
+        if (movement.containsKey("frequency")) {
+            varText.setText("Frequency:");
+            varValue.setText(movement.get("frequency") + " VHP");
+        } else if (movement.containsKey("batteryType")){
+            varText.setText("Battery Type:");
+            varValue.setText(movement.get("batteryType"));
+        }
+
         reserve.setText(movement.get("reserve") + " h");
         jewels.setText(movement.get("jewels"));
-        frequency.setText(movement.get("frequency") + " VHP");
 
         if (movement.get("coscCertification").equals("true")) {
             coscCertification.setText("Yes");

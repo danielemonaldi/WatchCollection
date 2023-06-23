@@ -27,4 +27,8 @@ public class Database {
 
         return DataParser.parser(QueryExecutor.selectQuery(this.infModel, QueryUtility.addFilters(OntologyQuery.GET_WATCH_MOVEMENT.getQuery(), "?referenceString", reference)));
     }
+
+    public void test(String user, String reference) {
+
+    }
 }
