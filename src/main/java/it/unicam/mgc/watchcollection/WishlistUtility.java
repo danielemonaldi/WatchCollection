@@ -15,7 +15,7 @@ public class WishlistUtility {
         parameter.put("?referenceString", reference);
 
         //QueryExecutor.addDataQuery(this.infModel, QueryUtility.addFilters(OntologyQuery.ADD_WATCH_WISHLIST.getQuery(), parameter));
-        QueryExecutor.addDataQuery(this.infModel, OntologyQuery.ADD_WATCH_WISHLIST.getQuery());
+        QueryExecutor.addDataQuery(this.infModel, OntologyQuery.TEST.getQuery());
     }
 
     public ArrayList<LinkedHashMap<String, String>> getUserWishlist(String userEmail) {

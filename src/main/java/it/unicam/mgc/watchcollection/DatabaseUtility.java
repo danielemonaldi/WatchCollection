@@ -27,4 +27,14 @@ public class DatabaseUtility {
 
         return DataParser.parser(QueryExecutor.selectDataQuery(this.infModel, QueryUtility.addFilters(OntologyQuery.GET_WATCH_MOVEMENT.getQuery(), "?referenceString", reference)));
     }
+
+    public ArrayList<LinkedHashMap<String, String>> watchModelSearch(String modelName) {
+
+        return DataParser.parser(QueryExecutor.selectDataQuery(this.infModel, QueryUtility.addFiltersContains(OntologyQuery.GET_ALL_WATCHES_BASIC.getQuery(), "?modelName", modelName)));
+    }
+
+    public ArrayList<LinkedHashMap<String, String>> watchReferenceSearch(String modelName) {
+
+        return DataParser.parser(QueryExecutor.selectDataQuery(this.infModel, QueryUtility.addFiltersContains(OntologyQuery.GET_ALL_WATCHES_BASIC.getQuery(), "?referenceString", modelName)));
+    }
 }

@@ -22,7 +22,7 @@
                      <children>
                         <HBox alignment="CENTER_LEFT" prefHeight="157.0" prefWidth="1366.0">
                            <children>
-                              <TextField prefHeight="26.0" prefWidth="267.0" promptText="Search by model...">
+                              <TextField fx:id="modelInput" prefHeight="26.0" prefWidth="267.0" promptText="Search by model...">
                                  <HBox.margin>
                                     <Insets left="20.0" />
                                  </HBox.margin>
@@ -30,17 +30,17 @@
                                     <Font name="Arial" size="12.0" />
                                  </font>
                               </TextField>
-                              <Button mnemonicParsing="false">
+                              <Button fx:id="modelSearch" mnemonicParsing="false">
                                  <HBox.margin>
                                     <Insets left="10.0" />
                                  </HBox.margin>
                               </Button>
-                              <TextField prefHeight="26.0" prefWidth="267.0" promptText="Search by reference...">
+                              <TextField fx:id="referenceInput" prefHeight="26.0" prefWidth="267.0" promptText="Search by reference...">
                                  <HBox.margin>
                                     <Insets left="20.0" />
                                  </HBox.margin>
                               </TextField>
-                              <Button mnemonicParsing="false">
+                              <Button fx:id="referenceSearch" mnemonicParsing="false">
                                  <HBox.margin>
                                     <Insets left="10.0" />
                                  </HBox.margin>
@@ -78,7 +78,7 @@
                <content>
                   <ScrollPane prefHeight="200.0" prefWidth="200.0">
                      <content>
-                        <TilePane fx:id="wishlistTilePane" prefHeight="200.0" prefWidth="1366.0">
+                        <TilePane fx:id="wishlistTilePane" hgap="20.0" prefHeight="200.0" prefWidth="1366.0" vgap="20.0">
                            <padding>
                               <Insets bottom="20.0" left="20.0" top="20.0" />
                            </padding>

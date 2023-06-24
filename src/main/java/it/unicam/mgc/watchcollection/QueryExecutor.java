@@ -1,10 +1,8 @@
 package it.unicam.mgc.watchcollection;
 
 import org.apache.jena.query.*;
-import org.apache.jena.rdf.model.Model;
-import org.apache.jena.update.UpdateAction;
-import org.apache.jena.update.UpdateFactory;
-import org.apache.jena.update.UpdateRequest;
+import org.apache.jena.rdf.model.*;
+import org.apache.jena.update.*;
 
 import java.util.ArrayList;
 
@@ -28,10 +26,7 @@ public class QueryExecutor {
         return resultList;
     }
 
-    public static void addDataQuery(Model model, String query) {
-
-        UpdateRequest updateRequest = UpdateFactory.create(query);
-        UpdateAction.execute(updateRequest, model);
+    public static void addDataQuery(InfModel model, String query) {
+        UpdateAction.parseExecute(query, model);
     }
-
 }

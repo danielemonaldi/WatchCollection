@@ -22,6 +22,11 @@ public class QueryUtility {
         return query.substring(0, query.length() - 1) + "  FILTER (" + parameter + " = " + convertValueToString(value) + ").\n" + "}";
     }
 
+    public static String addFiltersContains(String query, String parameter, Object value) {
+
+        return query.substring(0, query.length() - 1) + "  FILTER (CONTAINS(lcase(" + parameter + "), lcase(" + convertValueToString(value) + "))).\n" + "}";
+    }
+
     private static String convertValueToString(Object object) {
         if (object instanceof String) {
             return "\"" + object + "\"";
