@@ -2,9 +2,9 @@ package it.unicam.mgc.watchcollection;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.control.Button;
-import javafx.scene.control.Tab;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.TilePane;
 import javafx.scene.layout.VBox;
 
@@ -44,6 +44,20 @@ public class AppController {
     @FXML
     private Button referenceSearch;
 
+    @FXML
+    private Button resetFilters;
+
+    @FXML
+    private MenuButton movementFilter;
+
+    @FXML
+    private MenuItem automaticOption;
+
+    @FXML
+    private MenuItem mechanicalOption;
+
+    @FXML
+    private MenuItem quartzOption;
 
     private final String userEmail = "user@gmail.com";
 
@@ -51,24 +65,16 @@ public class AppController {
     WishlistUtility wishlist = new WishlistUtility();
 
     public void initialize() throws IOException {
-        modelSearch.setOnAction(event -> {
-            try {
-                modelSearch();
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-        });
-        referenceSearch.setOnAction(event -> {
-            try {
-                referenceSearch();
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-        });
 
+        Image searchImage = new Image("images/search.png");
+        modelSearch.setGraphic(new ImageView(searchImage));
+        referenceSearch.setGraphic(new ImageView(searchImage));
+
+        setEvents();
         createDatabaseCards();
         createWishlistCards();
     }
+
     private void createDatabaseCards() throws IOException {
         createCards(database.getAllWatches(), this.databaseTilePane);
     }
@@ -82,18 +88,12 @@ public class AppController {
 
     private void modelSearch() throws IOException {
         this.databaseTilePane.getChildren().clear();
-
-        if (modelInput.getText() != "") {
-            createCards(database.watchModelSearch(modelInput.getText()), this.databaseTilePane);
-        } else createCollectionCards();
+        createCards(database.watchModelSearch(modelInput.getText()), this.databaseTilePane);
     }
 
     private void referenceSearch() throws IOException {
         this.databaseTilePane.getChildren().clear();
-
-        if (referenceInput.getText() != "") {
-            createCards(database.watchReferenceSearch(referenceInput.getText()), this.databaseTilePane);
-        } else createCollectionCards();
+        createCards(database.watchReferenceSearch(referenceInput.getText()), this.databaseTilePane);
     }
 
     private void createCards(ArrayList<LinkedHashMap<String, String>> hashMapSet, TilePane tilePane) throws IOException {
@@ -106,6 +106,52 @@ public class AppController {
             cardController.setData(hashMap);
             tilePane.getChildren().add(vBox);
         }
+    }
+
+    private void setEvents() {
+
+        modelSearch.setOnAction(event -> {
+            try {
+                modelSearch();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        });
+
+        referenceSearch.setOnAction(event -> {
+            try {
+                referenceSearch();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        });
+
+        resetFilters.setOnAction(event -> {
+            try {
+                resetFilters();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        });
+
+        automaticOption.setOnAction(event -> {
+            movementFilter.setText("Movement type: Automatic winding");
+        });
+
+        mechanicalOption.setOnAction(event -> {
+            movementFilter.setText("Movement type: Mechanical winding");
+        });
+
+        quartzOption.setOnAction(event -> {
+            movementFilter.setText("Movement type: Quartz");
+        });
+    }
+
+    private void resetFilters() throws IOException {
+        modelInput.clear();
+        referenceInput.clear();
+        this.databaseTilePane.getChildren().clear();
+        createDatabaseCards();
     }
 
 }

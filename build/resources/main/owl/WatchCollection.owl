@@ -1566,7 +1566,6 @@
 
     <owl:NamedIndividual rdf:about="http://www.unicam.it/WatchCollection#UserWishlist">
         <rdf:type rdf:resource="http://www.unicam.it/WatchCollection#Wishlist"/>
-        <WatchCollection:contains rdf:resource="http://www.unicam.it/WatchCollection#126506"/>
     </owl:NamedIndividual>
     
 

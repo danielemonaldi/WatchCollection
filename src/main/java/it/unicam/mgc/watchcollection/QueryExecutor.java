@@ -2,8 +2,13 @@ package it.unicam.mgc.watchcollection;
 
 import org.apache.jena.query.*;
 import org.apache.jena.rdf.model.*;
-import org.apache.jena.update.*;
+import org.apache.jena.riot.Lang;
+import org.apache.jena.riot.RDFDataMgr;
+import org.apache.jena.update.UpdateAction;
+import org.apache.jena.update.UpdateFactory;
+import org.apache.jena.update.UpdateRequest;
 
+import java.io.*;
 import java.util.ArrayList;
 
 public class QueryExecutor {
@@ -27,6 +32,13 @@ public class QueryExecutor {
     }
 
     public static void addDataQuery(InfModel model, String query) {
-        UpdateAction.parseExecute(query, model);
+        Dataset dataset = DatasetFactory.create(model);
+        dataset.begin(ReadWrite.WRITE);
+        UpdateRequest updateRequest = UpdateFactory.create(query);
+        UpdateAction.execute(updateRequest, dataset);
+        dataset.commit();
+        dataset.end();
+        dataset.close();
     }
+
 }
