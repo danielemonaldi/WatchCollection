@@ -4,9 +4,7 @@ import org.apache.jena.query.*;
 import org.apache.jena.rdf.model.*;
 import org.apache.jena.riot.Lang;
 import org.apache.jena.riot.RDFDataMgr;
-import org.apache.jena.update.UpdateAction;
-import org.apache.jena.update.UpdateFactory;
-import org.apache.jena.update.UpdateRequest;
+import org.apache.jena.update.*;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -32,13 +30,13 @@ public class QueryExecutor {
     }
 
     public static void addDataQuery(InfModel model, String query) {
-        Dataset dataset = DatasetFactory.create(model);
-        dataset.begin(ReadWrite.WRITE);
-        UpdateRequest updateRequest = UpdateFactory.create(query);
-        UpdateAction.execute(updateRequest, dataset);
-        dataset.commit();
-        dataset.end();
-        dataset.close();
-    }
 
+        Dataset dataset = DatasetFactory.createTxnMem();
+        dataset.setDefaultModel(model);
+
+        UpdateRequest updateRequest = UpdateFactory.create(query);
+        UpdateExecution updateExecution = null;
+        updateExecution = UpdateExecutionFactory.create(updateRequest, dataset);
+        updateExecution.execute();
+    }
 }

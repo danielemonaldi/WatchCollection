@@ -47,8 +47,9 @@
                                     <Insets />
                                  </HBox.margin>
                               </Button>
-                              <MenuButton fx:id="movementFilter" mnemonicParsing="false" text="Movement type">
+                              <MenuButton fx:id="movementFilter" mnemonicParsing="false" text="Movement type: All">
                                 <items>
+                                    <MenuItem fx:id="allOption" mnemonicParsing="false" text="All" />
                                   <MenuItem fx:id="automaticOption" mnemonicParsing="false" text="Automatic winding" />
                                   <MenuItem fx:id="manualOption" mnemonicParsing="false" text="Manual winding" />
                                     <MenuItem fx:id="quartzOption" mnemonicParsing="false" text="Quartz" />

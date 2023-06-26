@@ -51,10 +51,13 @@ public class AppController {
     private MenuButton movementFilter;
 
     @FXML
+    private MenuItem allOption;
+
+    @FXML
     private MenuItem automaticOption;
 
     @FXML
-    private MenuItem mechanicalOption;
+    private MenuItem manualOption;
 
     @FXML
     private MenuItem quartzOption;
@@ -134,22 +137,51 @@ public class AppController {
             }
         });
 
-        automaticOption.setOnAction(event -> {
-            movementFilter.setText("Movement type: Automatic winding");
+        allOption.setOnAction(event -> {
+            movementFilter.setText("Movement type: All");
+            this.databaseTilePane.getChildren().clear();
+            try {
+                createDatabaseCards();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
         });
 
-        mechanicalOption.setOnAction(event -> {
-            movementFilter.setText("Movement type: Mechanical winding");
+        automaticOption.setOnAction(event -> {
+            movementFilter.setText("Movement type: Automatic winding");
+            this.databaseTilePane.getChildren().clear();
+            try {
+                createCards(database.getWatchByMovementType("AutomaticWinding"), this.databaseTilePane);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        });
+
+        manualOption.setOnAction(event -> {
+            movementFilter.setText("Movement type: Manual winding");
+            this.databaseTilePane.getChildren().clear();
+            try {
+                createCards(database.getWatchByMovementType("ManualWinding"), this.databaseTilePane);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
         });
 
         quartzOption.setOnAction(event -> {
             movementFilter.setText("Movement type: Quartz");
+            this.databaseTilePane.getChildren().clear();
+            try {
+                createCards(database.getWatchByMovementType("QuartzMovement"), this.databaseTilePane);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
         });
     }
 
     private void resetFilters() throws IOException {
         modelInput.clear();
         referenceInput.clear();
+        movementFilter.setText("Movement type: All");
         this.databaseTilePane.getChildren().clear();
         createDatabaseCards();
     }

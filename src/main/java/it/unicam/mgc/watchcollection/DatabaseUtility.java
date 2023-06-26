@@ -28,21 +28,6 @@ public class DatabaseUtility {
         return DataParser.parser(QueryExecutor.selectDataQuery(this.infModel, QueryUtility.addFilters(OntologyQuery.GET_WATCH_MOVEMENT.getQuery(), "?referenceString", reference)));
     }
 
-    public ArrayList<LinkedHashMap<String, String>> getAutomaticWatch() {
-
-        return DataParser.parser(QueryExecutor.selectDataQuery(this.infModel, QueryUtility.addFilters(OntologyQuery.GET_WATCH_MOVEMENT.getQuery(), "?rotor", "true")));
-    }
-
-    public ArrayList<LinkedHashMap<String, String>> getMechanicalWatch() {
-
-        return DataParser.parser(QueryExecutor.selectDataQuery(this.infModel, QueryUtility.addFilters(OntologyQuery.GET_WATCH_MOVEMENT.getQuery(), "?rotor", "true")));
-    }
-
-    public ArrayList<LinkedHashMap<String, String>> getQuartzWatch() {
-
-        return DataParser.parser(QueryExecutor.selectDataQuery(this.infModel, QueryUtility.addFilters(OntologyQuery.GET_WATCH_MOVEMENT.getQuery(), "?referenceString", "reference")));
-    }
-
     public ArrayList<LinkedHashMap<String, String>> watchModelSearch(String modelName) {
 
         return DataParser.parser(QueryExecutor.selectDataQuery(this.infModel, QueryUtility.addFiltersContains(OntologyQuery.GET_ALL_WATCHES_BASIC.getQuery(), "?modelName", modelName)));
@@ -51,5 +36,10 @@ public class DatabaseUtility {
     public ArrayList<LinkedHashMap<String, String>> watchReferenceSearch(String modelName) {
 
         return DataParser.parser(QueryExecutor.selectDataQuery(this.infModel, QueryUtility.addFiltersContains(OntologyQuery.GET_ALL_WATCHES_BASIC.getQuery(), "?referenceString", modelName)));
+    }
+
+    public ArrayList<LinkedHashMap<String, String>> getWatchByMovementType(String movementType) {
+
+        return DataParser.parser(QueryExecutor.selectDataQuery(this.infModel, QueryUtility.addFilters(OntologyQuery.GET_WATCH_BY_MOVEMENT_TYPE.getQuery(), "?movementType", movementType)));
     }
 }

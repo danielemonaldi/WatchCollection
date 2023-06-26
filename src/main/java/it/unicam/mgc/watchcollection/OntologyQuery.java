@@ -99,11 +99,37 @@ public enum OntologyQuery {
             "  ?reference wa:reference ?referenceString ;\n" +
             "  wa:imageLink ?watchImage .\n" +
             "}"),
-    TEST("PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n" +
-            "PREFIX foaf: <http://xmlns.com/foaf/0.1/#>\n" +
+
+    GET_WATCH_BY_MOVEMENT_TYPE("PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n" +
+            "PREFIX foaf: <http://xmlns.com/foaf/0.1/>\n" +
             "PREFIX wa: <http://www.unicam.it/WatchCollection#>\n" +
-            "INSERT DATA { \n" +
-            "  wa:UserWishlist wa:contains wa:126506 .\n" +
+            "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n" +
+            "\n" +
+            "SELECT ?watchImage ?organizationName ?modelName ?referenceString\n" +
+            "WHERE {\n" +
+            "  ?organization rdf:type foaf:Organization ;\n" +
+            "  foaf:name ?organizationName ;\n" +
+            "  foaf:made ?model .\n" +
+            "  ?model foaf:name ?modelName ;\n" +
+            "  wa:hasReference ?reference .\n" +
+            "  ?reference wa:reference ?referenceString ;\n" +
+            "  wa:imageLink ?watchImage ;\n" +
+            "  wa:hasMovement ?movement .\n" +
+            "  ?movement rdf:type ?class .\n" +
+            "  ?class rdfs:label ?movementType .\n" +
+            "}"),
+    TEST("PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n" +
+            "PREFIX foaf: <http://xmlns.com/foaf/0.1/>\n" +
+            "PREFIX wa: <http://www.unicam.it/WatchCollection#>\n" +
+            "INSERT DATA {\n" +
+            "  ?wishlist wa:contains ?reference .\n" +
+            "}\n" +
+            "WHERE {\n" +
+            "  ?wishlist rdf:type wa:Wishlist ;\n" +
+            "            wa:hasOwner ?user .\n" +
+            "  ?user wa:email \"user@gmail.com\" .\n" +
+            "  ?reference rdf:type wa:Reference ;\n" +
+            "              wa:reference \"228235\" .\n" +
             "}"),
 
     ADD_WATCH_WISHLIST("PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n" +
@@ -115,11 +141,9 @@ public enum OntologyQuery {
             "WHERE {\n" +
             "  ?wishlist rdf:type wa:Wishlist ;\n" +
             "  wa:hasOwner ?user .\n" +
-            "  ?user wa:email ?userEmail .\n" +
+            "  ?user wa:email ?email .\n" +
             "  ?reference rdf:type wa:Reference ;\n" +
             "  wa:reference ?referenceString .\n" +
-            "  FILTER(?userEmail = \"user@gmail.com\") .\n" +
-            "  FILTER(?referenceString = \"L.3.410.4.93.6\") .\n" +
             "}");
 
     private final String query;

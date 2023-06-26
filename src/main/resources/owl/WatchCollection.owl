@@ -647,6 +647,7 @@
         </rdfs:subClassOf>
         <owl:disjointWith rdf:resource="http://www.unicam.it/WatchCollection#ManualWinding"/>
         <rdfs:comment xml:lang="en">Automatic movements are those whose spring is automatically wound by a rotor, which moves thanks to the movements of the wrist.</rdfs:comment>
+        <rdfs:label>AutomaticWinding</rdfs:label>
     </owl:Class>
     
 
@@ -765,6 +766,7 @@
             </owl:Class>
         </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">Automatic movements are those whose spring is wound manually through the rotation of the watch crown.</rdfs:comment>
+        <rdfs:label>ManualWinding</rdfs:label>
     </owl:Class>
     
 
@@ -905,6 +907,7 @@
             </owl:Class>
         </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">The class contains quartz movements, which are powered by a battery.</rdfs:comment>
+        <rdfs:label>QuartzMovement</rdfs:label>
     </owl:Class>
     
 
