@@ -10,36 +10,36 @@ public class DatabaseUtility {
 
     public ArrayList<LinkedHashMap<String, String>> getAllWatches() {
 
-        return DataParser.parser(QueryExecutor.selectDataQuery(this.infModel, OntologyQuery.GET_ALL_WATCHES_BASIC.getQuery()));
+        return DataParser.parser(QueryExecutor.selectDataQuery(this.infModel, DatabaseQuery.GET_ALL_WATCHES_BASIC.getQuery()));
     }
 
     public ArrayList<LinkedHashMap<String, String>> getWatchDetails(String reference) {
 
-        return DataParser.parser(QueryExecutor.selectDataQuery(this.infModel, QueryUtility.addFilters(OntologyQuery.GET_WATCH_DETAILS.getQuery(), "?referenceString", reference)));
+        return DataParser.parser(QueryExecutor.selectDataQuery(this.infModel, QueryUtility.addFilters(DatabaseQuery.GET_WATCH_DETAILS.getQuery(), "?referenceString", reference)));
     }
 
     public ArrayList<LinkedHashMap<String, String>> getWatchDimension(String reference) {
 
-        return DataParser.parser(QueryExecutor.selectDataQuery(this.infModel, QueryUtility.addFilters(OntologyQuery.GET_WATCH_DIMENSION.getQuery(), "?referenceString", reference)));
+        return DataParser.parser(QueryExecutor.selectDataQuery(this.infModel, QueryUtility.addFilters(DatabaseQuery.GET_WATCH_DIMENSION.getQuery(), "?referenceString", reference)));
     }
 
     public ArrayList<LinkedHashMap<String, String>> getWatchMovement(String reference) {
 
-        return DataParser.parser(QueryExecutor.selectDataQuery(this.infModel, QueryUtility.addFilters(OntologyQuery.GET_WATCH_MOVEMENT.getQuery(), "?referenceString", reference)));
+        return DataParser.parser(QueryExecutor.selectDataQuery(this.infModel, QueryUtility.addFilters(DatabaseQuery.GET_WATCH_MOVEMENT.getQuery(), "?referenceString", reference)));
     }
 
     public ArrayList<LinkedHashMap<String, String>> watchModelSearch(String modelName) {
 
-        return DataParser.parser(QueryExecutor.selectDataQuery(this.infModel, QueryUtility.addFiltersContains(OntologyQuery.GET_ALL_WATCHES_BASIC.getQuery(), "?modelName", modelName)));
+        return DataParser.parser(QueryExecutor.selectDataQuery(this.infModel, QueryUtility.addFiltersContains(DatabaseQuery.GET_ALL_WATCHES_BASIC.getQuery(), "?modelName", modelName)));
     }
 
     public ArrayList<LinkedHashMap<String, String>> watchReferenceSearch(String modelName) {
 
-        return DataParser.parser(QueryExecutor.selectDataQuery(this.infModel, QueryUtility.addFiltersContains(OntologyQuery.GET_ALL_WATCHES_BASIC.getQuery(), "?referenceString", modelName)));
+        return DataParser.parser(QueryExecutor.selectDataQuery(this.infModel, QueryUtility.addFiltersContains(DatabaseQuery.GET_ALL_WATCHES_BASIC.getQuery(), "?referenceString", modelName)));
     }
 
     public ArrayList<LinkedHashMap<String, String>> getWatchByMovementType(String movementType) {
 
-        return DataParser.parser(QueryExecutor.selectDataQuery(this.infModel, QueryUtility.addFilters(OntologyQuery.GET_WATCH_BY_MOVEMENT_TYPE.getQuery(), "?movementType", movementType)));
+        return DataParser.parser(QueryExecutor.selectDataQuery(this.infModel, QueryUtility.addFilters(DatabaseQuery.GET_WATCH_BY_MOVEMENT_TYPE.getQuery(), "?movementType", movementType)));
     }
 }

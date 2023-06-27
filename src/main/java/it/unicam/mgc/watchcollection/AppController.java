@@ -24,15 +24,6 @@ public class AppController {
     private TilePane wishlistTilePane;
 
     @FXML
-    private Tab databaseTab;
-
-    @FXML
-    private Tab collectionTab;
-
-    @FXML
-    private Tab wishlistTab;
-
-    @FXML
     private TextField modelInput;
 
     @FXML
@@ -65,6 +56,7 @@ public class AppController {
     private final String userEmail = "user@gmail.com";
 
     DatabaseUtility database = new DatabaseUtility();
+    CollectionUtility collection = new CollectionUtility();
     WishlistUtility wishlist = new WishlistUtility();
 
     public void initialize() throws IOException {
@@ -75,6 +67,7 @@ public class AppController {
 
         setEvents();
         createDatabaseCards();
+        createCollectionCards();
         createWishlistCards();
     }
 
@@ -83,6 +76,7 @@ public class AppController {
     }
 
     private void createCollectionCards() throws IOException {
+        createCards(collection.getUserCollection(this.userEmail), this.collectionTilePane);
     }
 
     private void createWishlistCards() throws IOException {

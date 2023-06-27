@@ -146,16 +146,16 @@ public class DetailsController {
         watchMaker.setText(movement.get("watchMaker"));
         movementName.setText(movement.get("movementName"));
 
-        if (movement.get("rotor").equals("true")) {
-            movementType.setText("Mechanical Movement- Automatic winding");
-        } else if ((movement.get("rotor").equals("false"))) {
-            movementType.setText("Mechanical Movement - Manual winding");
-        } else movementType.setText("Quartz Movement");
-
         if (movement.containsKey("frequency")) {
             varText.setText("Frequency:");
             varValue.setText(movement.get("frequency") + " VHP");
-        } else if (movement.containsKey("batteryType")){
+            if (movement.get("rotor").equals("true")) {
+                movementType.setText("Mechanical Movement - Automatic winding");
+            } else {
+                movementType.setText("Mechanical Movement - Manual winding");
+            }
+        } else {
+            movementType.setText("Quartz Movement");
             varText.setText("Battery Type:");
             varValue.setText(movement.get("batteryType"));
         }
