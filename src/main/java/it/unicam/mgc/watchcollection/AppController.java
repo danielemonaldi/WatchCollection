@@ -7,13 +7,13 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.TilePane;
 import javafx.scene.layout.VBox;
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 
 public class AppController {
 
+    // FXML UI objects
     @FXML
     private TilePane databaseTilePane;
 
@@ -53,14 +53,25 @@ public class AppController {
     @FXML
     private MenuItem quartzOption;
 
+    /*
+     * User email
+     *
+     * Example user, used to get the collection
+     * and the wishlist in the application.
+     */
     private final String userEmail = "user@gmail.com";
 
+    // UI Tab utilities
     DatabaseUtility database = new DatabaseUtility();
     CollectionUtility collection = new CollectionUtility();
     WishlistUtility wishlist = new WishlistUtility();
 
+    /**
+     * Method used to initialize this controller. This method is invoked by JavaFX.
+     */
     public void initialize() throws IOException {
 
+        // UI settings
         Image searchImage = new Image("images/search.png");
         modelSearch.setGraphic(new ImageView(searchImage));
         referenceSearch.setGraphic(new ImageView(searchImage));
@@ -71,42 +82,87 @@ public class AppController {
         createWishlistCards();
     }
 
+    /**
+     * Get the references from the database and creates a
+     * card for each one and adds it to the specified TilePane.
+     *
+     * @throws IOException
+     */
     private void createDatabaseCards() throws IOException {
-        createCards(database.getAllWatches(), this.databaseTilePane);
+        createCards(database.get(), this.databaseTilePane);
     }
 
+    /**
+     * Get the references from the user's collection and creates
+     * a card for each one and adds it to the specified TilePane.
+     *
+     * @throws IOException
+     */
     private void createCollectionCards() throws IOException {
-        createCards(collection.getUserCollection(this.userEmail), this.collectionTilePane);
+        createCards(collection.get(this.userEmail), this.collectionTilePane);
     }
 
+    /**
+     * Get the references from the user's wishlist and creates a
+     * card for each one and adds it to the specified TilePane.
+     *
+     * @throws IOException
+     */
     private void createWishlistCards() throws IOException {
-        createCards(wishlist.getUserWishlist(this.userEmail), this.wishlistTilePane);
+        createCards(wishlist.get(this.userEmail), this.wishlistTilePane);
     }
 
+    /**
+     * Search for a references in the database by its model name.
+     *
+     * @throws IOException
+     */
     private void modelSearch() throws IOException {
         this.databaseTilePane.getChildren().clear();
         createCards(database.watchModelSearch(modelInput.getText()), this.databaseTilePane);
     }
 
+    /**
+     * Search for a references in the database by its reference string.
+     *
+     * @throws IOException
+     */
     private void referenceSearch() throws IOException {
         this.databaseTilePane.getChildren().clear();
         createCards(database.watchReferenceSearch(referenceInput.getText()), this.databaseTilePane);
     }
 
+    /**
+     * Create cards for each reference in the list.
+     * The list contains the result of a query.
+     *
+     * @param hashMapSet        List of HashMap. Each HashMap is a record of the query result.
+     * @param tilePane          Tile pane where to create the cards.
+     *
+     * @throws IOException
+     */
     private void createCards(ArrayList<LinkedHashMap<String, String>> hashMapSet, TilePane tilePane) throws IOException {
 
         for (LinkedHashMap<String, String> hashMap : hashMapSet) {
+            // Card creation
             FXMLLoader fxmlLoader = new FXMLLoader();
             fxmlLoader.setLocation(getClass().getResource("/fxml/card.fxml"));
             VBox vBox = fxmlLoader.load();
             CardController cardController = fxmlLoader.getController();
+            // Set the reference information in the card
             cardController.setData(hashMap);
+            // Add card to TilePane
             tilePane.getChildren().add(vBox);
         }
     }
 
+
+    /**
+     * Sets events for objects on the UI
+     */
     private void setEvents() {
 
+        // Search by model name
         modelSearch.setOnAction(event -> {
             try {
                 modelSearch();
@@ -115,6 +171,7 @@ public class AppController {
             }
         });
 
+        // Search by reference string
         referenceSearch.setOnAction(event -> {
             try {
                 referenceSearch();
@@ -123,14 +180,8 @@ public class AppController {
             }
         });
 
-        resetFilters.setOnAction(event -> {
-            try {
-                resetFilters();
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-        });
-
+        // Movement type filter
+        // All movement type
         allOption.setOnAction(event -> {
             movementFilter.setText("Movement type: All");
             this.databaseTilePane.getChildren().clear();
@@ -141,6 +192,7 @@ public class AppController {
             }
         });
 
+        // Automatic winding movement type
         automaticOption.setOnAction(event -> {
             movementFilter.setText("Movement type: Automatic winding");
             this.databaseTilePane.getChildren().clear();
@@ -151,6 +203,7 @@ public class AppController {
             }
         });
 
+        // Manual winding movement type
         manualOption.setOnAction(event -> {
             movementFilter.setText("Movement type: Manual winding");
             this.databaseTilePane.getChildren().clear();
@@ -161,6 +214,7 @@ public class AppController {
             }
         });
 
+        // Quartz movement type
         quartzOption.setOnAction(event -> {
             movementFilter.setText("Movement type: Quartz");
             this.databaseTilePane.getChildren().clear();
@@ -170,8 +224,23 @@ public class AppController {
                 throw new RuntimeException(e);
             }
         });
+
+        // Reset all filters
+        resetFilters.setOnAction(event -> {
+            try {
+                resetFilters();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        });
     }
 
+
+    /**
+     * Reset all the filters in the UI.
+     *
+     * @throws IOException
+     */
     private void resetFilters() throws IOException {
         modelInput.clear();
         referenceInput.clear();

@@ -1,5 +1,5 @@
 package it.unicam.mgc.watchcollection;
 
-public interface Query {
+public interface OntologyQuery {
     String getQuery();
 }

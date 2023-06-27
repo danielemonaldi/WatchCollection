@@ -3,10 +3,7 @@ package it.unicam.mgc.watchcollection;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
-import java.util.List;
-
 import org.apache.jena.query.QuerySolution;
-import org.apache.jena.query.ResultSet;
 
 public class DataParser {
     public static ArrayList<LinkedHashMap<String, String>> parser(ArrayList<QuerySolution> querySolutions) {

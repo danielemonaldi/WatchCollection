@@ -7,17 +7,14 @@ import javafx.scene.Scene;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.LinkedHashMap;
-import java.util.Objects;
 
 public class CardController {
 
+    // FXML UI objects
     @FXML
     private ImageView watchImage;
 
@@ -33,37 +30,54 @@ public class CardController {
     @FXML
     private Hyperlink details;
 
-    public void setData(LinkedHashMap<String, String> data) {
-
-        Image waImage = new Image(data.get("watchImage"));
-        watchImage.setImage(waImage);
-        organizationName.setText(data.get("organizationName"));
-        modelName.setText(data.get("modelName"));
-        reference.setText(data.get("referenceString"));
-
+    /**
+     * Method used to initialize this controller. This method is invoked by JavaFX.
+     */
+    public void initialize() {
         details.setOnAction(event -> {
             openDetailScene();
         });
     }
 
+    /**
+     * Set the information of the reference in the card.
+     *
+     * @param data      HashMap containing the information of a reference.
+     */
+    public void setData(LinkedHashMap<String, String> data) {
+        Image waImage = new Image(data.get("watchImage"));
+        watchImage.setImage(waImage);
+        organizationName.setText(data.get("organizationName"));
+        modelName.setText(data.get("modelName"));
+        reference.setText(data.get("referenceString"));
+    }
+
+    /**
+     * Create and open the screen to view the
+     * detailed information of a specific reference.
+     */
     private void openDetailScene() {
 
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/details.fxml"));
             Parent root = fxmlLoader.load();
-
             DetailsController detailsController = fxmlLoader.getController();
+
+            // Get the reference whose detailed information is to be displayed
             detailsController.setReference(reference.getText());
 
+            // Hide the current screen
             Stage currentStage = (Stage) reference.getScene().getWindow();
             currentStage.hide();
 
+            // UI settings
             Stage detailsStage = new Stage();
             detailsStage.setScene(new Scene(root));
             detailsStage.getIcons().add(new Image("images/icon.png"));
             detailsStage.setTitle("Watch Collection - " + organizationName.getText() + " " + modelName.getText() + " " + reference.getText());
             detailsStage.setResizable(false);
 
+            // Open the new screen without closing the previous one
             detailsStage.setOnHidden(event -> currentStage.show());
             detailsStage.showAndWait();
 

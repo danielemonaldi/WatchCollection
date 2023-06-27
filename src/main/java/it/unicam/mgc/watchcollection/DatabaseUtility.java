@@ -4,11 +4,9 @@ import org.apache.jena.rdf.model.InfModel;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 
-public class DatabaseUtility {
+public class DatabaseUtility extends TabUtility {
 
-    private final InfModel infModel = InfModelUtility.create();
-
-    public ArrayList<LinkedHashMap<String, String>> getAllWatches() {
+    public ArrayList<LinkedHashMap<String, String>> get() {
 
         return DataParser.parser(QueryExecutor.selectDataQuery(this.infModel, DatabaseQuery.GET_ALL_WATCHES_BASIC.getQuery()));
     }

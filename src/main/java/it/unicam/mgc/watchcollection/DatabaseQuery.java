@@ -1,6 +1,11 @@
 package it.unicam.mgc.watchcollection;
 
-public enum DatabaseQuery implements Query {
+public enum DatabaseQuery implements OntologyQuery {
+
+    /**
+     * SPARQL queries for managing the references database.
+     */
+
     GET_ALL_WATCHES_BASIC("PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n" +
             "PREFIX foaf: <http://xmlns.com/foaf/0.1/>\n" +
             "PREFIX wa: <http://www.unicam.it/WatchCollection#>\n" +

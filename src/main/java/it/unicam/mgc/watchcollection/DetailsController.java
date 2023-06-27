@@ -6,8 +6,6 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
@@ -174,7 +172,7 @@ public class DetailsController {
     }
 
     private void addWatchWishlist() {
-        wishlist.addWatchWishlist(this.userEmail, referenceString.getText());
+        wishlist.add(this.userEmail, referenceString.getText());
     }
 
     private void closeCurrentWindow() {
