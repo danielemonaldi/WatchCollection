@@ -3,12 +3,14 @@ package it.unicam.mgc.watchcollection;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 
-public class DatabaseUtility extends TabUtility {
+/**
+ * Utility with methods for managing the watch database.
+ * Each method uses a CollectionQuery SPARQL query.
+ */
 
-    /*
-     * Utility with methods for managing the watch database.
-     * Each method uses a CollectionQuery SPARQL query.
-     */
+public class Database extends TabUtility {
+
+    DataParser dataParser = new DataParser();
 
     /**
      * Get all watches of the ontology.
@@ -17,7 +19,7 @@ public class DatabaseUtility extends TabUtility {
      */
     public ArrayList<LinkedHashMap<String, String>> get() {
 
-        return DataParser.parser(QueryExecutor.selectDataQuery(this.infModel, DatabaseQuery.GET_ALL_WATCHES_BASIC.getQuery()));
+        return dataParser.parser(QueryExecutor.selectionQuery(this.infModel, DatabaseQuery.GET_ALL_WATCHES_BASIC.getQuery()));
     }
 
     /**
@@ -28,7 +30,7 @@ public class DatabaseUtility extends TabUtility {
      */
     public ArrayList<LinkedHashMap<String, String>> getWatchDetails(String reference) {
 
-        return DataParser.parser(QueryExecutor.selectDataQuery(this.infModel, QueryUtility.addFilters(DatabaseQuery.GET_WATCH_DETAILS.getQuery(), "?referenceString", reference)));
+        return dataParser.parser(QueryExecutor.selectionQuery(this.infModel, QueryUtility.addFilters(DatabaseQuery.GET_WATCH_DETAILS.getQuery(), "?referenceString", reference)));
     }
 
     /**
@@ -39,7 +41,7 @@ public class DatabaseUtility extends TabUtility {
      */
     public ArrayList<LinkedHashMap<String, String>> getWatchDimensions(String reference) {
 
-        return DataParser.parser(QueryExecutor.selectDataQuery(this.infModel, QueryUtility.addFilters(DatabaseQuery.GET_WATCH_DIMENSION.getQuery(), "?referenceString", reference)));
+        return dataParser.parser(QueryExecutor.selectionQuery(this.infModel, QueryUtility.addFilters(DatabaseQuery.GET_WATCH_DIMENSION.getQuery(), "?referenceString", reference)));
     }
 
     /**
@@ -50,7 +52,7 @@ public class DatabaseUtility extends TabUtility {
      */
     public ArrayList<LinkedHashMap<String, String>> getWatchMovement(String reference) {
 
-        return DataParser.parser(QueryExecutor.selectDataQuery(this.infModel, QueryUtility.addFilters(DatabaseQuery.GET_WATCH_MOVEMENT.getQuery(), "?referenceString", reference)));
+        return dataParser.parser(QueryExecutor.selectionQuery(this.infModel, QueryUtility.addFilters(DatabaseQuery.GET_WATCH_MOVEMENT.getQuery(), "?referenceString", reference)));
     }
 
 
@@ -62,7 +64,7 @@ public class DatabaseUtility extends TabUtility {
      */
     public ArrayList<LinkedHashMap<String, String>> watchModelSearch(String modelName) {
 
-        return DataParser.parser(QueryExecutor.selectDataQuery(this.infModel, QueryUtility.addFiltersContains(DatabaseQuery.GET_ALL_WATCHES_BASIC.getQuery(), "?modelName", modelName)));
+        return dataParser.parser(QueryExecutor.selectionQuery(this.infModel, QueryUtility.addFiltersContains(DatabaseQuery.GET_ALL_WATCHES_BASIC.getQuery(), "?modelName", modelName)));
     }
 
     /**
@@ -73,7 +75,7 @@ public class DatabaseUtility extends TabUtility {
      */
     public ArrayList<LinkedHashMap<String, String>> watchReferenceSearch(String referenceString) {
 
-        return DataParser.parser(QueryExecutor.selectDataQuery(this.infModel, QueryUtility.addFiltersContains(DatabaseQuery.GET_ALL_WATCHES_BASIC.getQuery(), "?referenceString", referenceString)));
+        return dataParser.parser(QueryExecutor.selectionQuery(this.infModel, QueryUtility.addFiltersContains(DatabaseQuery.GET_ALL_WATCHES_BASIC.getQuery(), "?referenceString", referenceString)));
     }
 
 
@@ -88,6 +90,6 @@ public class DatabaseUtility extends TabUtility {
      */
     public ArrayList<LinkedHashMap<String, String>> getWatchByMovementType(String movementType) {
 
-        return DataParser.parser(QueryExecutor.selectDataQuery(this.infModel, QueryUtility.addFilters(DatabaseQuery.GET_WATCH_BY_MOVEMENT_TYPE.getQuery(), "?movementType", movementType)));
+        return dataParser.parser(QueryExecutor.selectionQuery(this.infModel, QueryUtility.addFilters(DatabaseQuery.GET_WATCH_BY_MOVEMENT_TYPE.getQuery(), "?movementType", movementType)));
     }
 }

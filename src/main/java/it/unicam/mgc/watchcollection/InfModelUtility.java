@@ -9,6 +9,11 @@ import org.apache.jena.riot.RDFDataMgr;
 
 public class InfModelUtility {
 
+    /**
+     * Loading the ontology from OWL file and applying the reasoner.
+     *
+     * @return      Model with reasoner.
+     */
     public static InfModel create() {
         Model data = RDFDataMgr.loadModel("owl/WatchCollection.owl");
 

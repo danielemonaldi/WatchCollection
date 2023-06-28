@@ -62,9 +62,9 @@ public class AppController {
     private final String userEmail = "user@gmail.com";
 
     // UI Tab utilities
-    DatabaseUtility database = new DatabaseUtility();
-    CollectionUtility collection = new CollectionUtility();
-    WishlistUtility wishlist = new WishlistUtility();
+    Database database = new Database();
+    Collection collection = new Collection();
+    Wishlist wishlist = new Wishlist();
 
     /**
      * Method used to initialize this controller. This method is invoked by JavaFX.

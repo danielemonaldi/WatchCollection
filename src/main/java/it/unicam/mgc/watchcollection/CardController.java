@@ -63,8 +63,8 @@ public class CardController {
             Parent root = fxmlLoader.load();
             DetailsController detailsController = fxmlLoader.getController();
 
-            // Get the reference whose detailed information is to be displayed
-            detailsController.setReference(reference.getText());
+            // Get the reference whose detailed information are to be displayed
+            detailsController.setData(reference.getText());
 
             // Hide the current screen
             Stage currentStage = (Stage) reference.getScene().getWindow();

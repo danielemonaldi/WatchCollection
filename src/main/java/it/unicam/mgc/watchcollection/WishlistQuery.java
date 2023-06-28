@@ -25,19 +25,9 @@ public enum WishlistQuery implements OntologyQuery {
             "  ?reference wa:reference ?referenceString ;\n" +
             "  wa:imageLink ?watchImage .\n" +
             "}"),
-    ADD_WATCH_WISHLIST("PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n" +
-            "PREFIX foaf: <http://xmlns.com/foaf/0.1/>\n" +
-            "PREFIX wa: <http://www.unicam.it/WatchCollection#>\n" +
-            "INSERT { \n" +
-            "  ?wishlist wa:contains ?reference .\n" +
-            " } \n" +
-            "WHERE {\n" +
-            "  ?wishlist rdf:type wa:Wishlist ;\n" +
-            "  wa:hasOwner ?user .\n" +
-            "  ?user wa:email ?email .\n" +
-            "  ?reference rdf:type wa:Reference ;\n" +
-            "  wa:reference ?referenceString .\n" +
-            "}");
+    ADD_WATCH_WISHLIST(""),
+
+    REMOVE_WATCH_WISHLIST("");
 
     private final String query;
 

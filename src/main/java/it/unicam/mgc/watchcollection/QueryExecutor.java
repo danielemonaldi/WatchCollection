@@ -4,7 +4,16 @@ import org.apache.jena.rdf.model.*;
 import java.util.ArrayList;
 
 public class QueryExecutor {
-    public static ArrayList<QuerySolution> selectDataQuery(Model model, String query) {
+
+
+    /**
+     * Performs a SELECT query on the ontology.
+     *
+     * @param model     Model on which perform the query.
+     * @param query     Query to perform.
+     * @return          QuerySolution.
+     */
+    public static ArrayList<QuerySolution> selectionQuery(Model model, String query) {
 
         ArrayList<QuerySolution> resultList = new ArrayList<>();
 
@@ -23,6 +32,12 @@ public class QueryExecutor {
         return resultList;
     }
 
-    public static void addDataQuery(InfModel model, String query) {
+    /**
+     * Performs an UPDATE query (INSERT or DELETE ) on the ontology.
+     *
+     * @param model     Model on which perform the query.
+     * @param query     Query to perform.
+     */
+    public static void updateQuery(InfModel model, String query) {
     }
 }

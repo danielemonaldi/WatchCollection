@@ -25,19 +25,9 @@ public enum CollectionQuery implements OntologyQuery {
             "  ?reference wa:reference ?referenceString ;\n" +
             "  wa:imageLink ?watchImage .\n" +
             "}"),
-    ADD_WATCH_COLLECTION("PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n" +
-            "PREFIX foaf: <http://xmlns.com/foaf/0.1/>\n" +
-            "PREFIX wa: <http://www.unicam.it/WatchCollection#>\n" +
-            "INSERT { \n" +
-            "  ?collection wa:contains ?reference .\n" +
-            " } \n" +
-            "WHERE {\n" +
-            "  ?collection rdf:type wa:Collection ;\n" +
-            "  wa:hasOwner ?user .\n" +
-            "  ?user wa:email ?email .\n" +
-            "  ?reference rdf:type wa:Reference ;\n" +
-            "  wa:reference ?referenceString .\n" +
-            "}");
+    ADD_WATCH_COLLECTION(""),
+
+    REMOVE_WATCH_COLLECTION("");
 
     private final String query;
 
