@@ -130,7 +130,7 @@ public class DetailsController {
         strapMaterial.setText(details.get("strapMaterialName"));
         glassMaterial.setText(details.get("glassMaterialName"));
 
-        ArrayList<LinkedHashMap<String, String>> dimensionData = database.getWatchDimension(reference);
+        ArrayList<LinkedHashMap<String, String>> dimensionData = database.getWatchDimensions(reference);
         LinkedHashMap<String, String> dimension = dimensionData.get(0);
 
         diameter.setText(dimension.get("diameter") + " mm");

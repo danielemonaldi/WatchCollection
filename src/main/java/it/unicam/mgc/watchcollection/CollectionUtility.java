@@ -11,10 +11,10 @@ public class CollectionUtility extends TabUtility {
      */
 
     /**
-     * Get the references in the user's collection.
+     * Get the watches in the user's collection.
      *
      * @param userEmail     Email used to identify the user and his collection.
-     * @return              List of references in the collection.
+     * @return              List of HashMap. Each HashMap corresponds to a record of the query result, therefore to a watch in the collection.
      */
     public ArrayList<LinkedHashMap<String, String>> get(String userEmail) {
 
@@ -22,10 +22,10 @@ public class CollectionUtility extends TabUtility {
     }
 
     /**
-     * Add a reference in the user's collection.
+     * Add a watch in the user's collection.
      *
      * @param userEmail     Email used to identify the user and his collection.
-     * @param reference     Reference string of the reference to add.
+     * @param reference     Reference string of the watch to add.
      */
     public void add(String userEmail, String reference) {
 
@@ -39,10 +39,10 @@ public class CollectionUtility extends TabUtility {
     }
 
     /**
-     * Remove a reference from a user's collection
+     * Remove a watch from a user's collection
      *
      * @param userEmail     Email used to identify the user and his collection.
-     * @param reference     Reference string of the reference to remove.
+     * @param reference     Reference string of the watch to remove.
      */
     public void remove(String userEmail, String reference) {
         // NO IMPLEMENTATION

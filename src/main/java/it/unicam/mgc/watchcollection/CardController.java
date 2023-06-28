@@ -40,9 +40,9 @@ public class CardController {
     }
 
     /**
-     * Set the information of the reference in the card.
+     * Set the information of the watch in the card.
      *
-     * @param data      HashMap containing the information of a reference.
+     * @param data      HashMap containing the information of a watch.
      */
     public void setData(LinkedHashMap<String, String> data) {
         Image waImage = new Image(data.get("watchImage"));
@@ -54,7 +54,7 @@ public class CardController {
 
     /**
      * Create and open the screen to view the
-     * detailed information of a specific reference.
+     * detailed information of a specific watch.
      */
     private void openDetailScene() {
 
@@ -84,7 +84,5 @@ public class CardController {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-
     }
-
 }

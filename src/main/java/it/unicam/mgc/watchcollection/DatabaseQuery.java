@@ -3,7 +3,7 @@ package it.unicam.mgc.watchcollection;
 public enum DatabaseQuery implements OntologyQuery {
 
     /**
-     * SPARQL queries for managing the references database.
+     * SPARQL queries for managing the watch database.
      */
 
     GET_ALL_WATCHES_BASIC("PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n" +

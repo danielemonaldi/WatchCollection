@@ -83,7 +83,7 @@ public class AppController {
     }
 
     /**
-     * Get the references from the database and creates a
+     * Get the watches from the database and creates a
      * card for each one and adds it to the specified TilePane.
      *
      * @throws IOException
@@ -93,7 +93,7 @@ public class AppController {
     }
 
     /**
-     * Get the references from the user's collection and creates
+     * Get the watches from the user's collection and creates
      * a card for each one and adds it to the specified TilePane.
      *
      * @throws IOException
@@ -103,7 +103,7 @@ public class AppController {
     }
 
     /**
-     * Get the references from the user's wishlist and creates a
+     * Get the watches from the user's wishlist and creates a
      * card for each one and adds it to the specified TilePane.
      *
      * @throws IOException
@@ -113,7 +113,7 @@ public class AppController {
     }
 
     /**
-     * Search for a references in the database by its model name.
+     * Search for watches in the database by their model name.
      *
      * @throws IOException
      */
@@ -123,7 +123,7 @@ public class AppController {
     }
 
     /**
-     * Search for a references in the database by its reference string.
+     * Search for watch in the database by its reference string.
      *
      * @throws IOException
      */
@@ -133,7 +133,7 @@ public class AppController {
     }
 
     /**
-     * Create cards for each reference in the list.
+     * Create cards for each watches in the list.
      * The list contains the result of a query.
      *
      * @param hashMapSet        List of HashMap. Each HashMap is a record of the query result.
@@ -149,7 +149,7 @@ public class AppController {
             fxmlLoader.setLocation(getClass().getResource("/fxml/card.fxml"));
             VBox vBox = fxmlLoader.load();
             CardController cardController = fxmlLoader.getController();
-            // Set the reference information in the card
+            // Set the watch information in the card
             cardController.setData(hashMap);
             // Add card to TilePane
             tilePane.getChildren().add(vBox);
@@ -248,5 +248,4 @@ public class AppController {
         this.databaseTilePane.getChildren().clear();
         createDatabaseCards();
     }
-
 }
