@@ -10,6 +10,7 @@ import java.util.LinkedHashMap;
 public class Wishlist extends TabUtility {
 
     DataParser dataParser = new DataParser();
+    QueryExecutor queryExecutor = new QueryExecutor();
 
     /**
      * Get the watches in the user's wishlist.
@@ -19,7 +20,7 @@ public class Wishlist extends TabUtility {
      */
     public ArrayList<LinkedHashMap<String, String>> get(String userEmail) {
 
-        return dataParser.parser(QueryExecutor.selectionQuery(this.infModel, QueryUtility.addFilters(WishlistQuery.GET_USER_WISHLIST.getQuery(), "?email", userEmail)));
+        return dataParser.parser(queryExecutor.selectionQuery(this.infModel, QueryUtility.addFilters(WishlistQuery.GET_USER_WISHLIST.getQuery(), "?email", userEmail)));
     }
 
     /**
@@ -34,7 +35,7 @@ public class Wishlist extends TabUtility {
         parameters.put("?email", userEmail);
         parameters.put("?referenceString", reference);
 
-        QueryExecutor.updateQuery(this.infModel, QueryUtility.addFilters(WishlistQuery.ADD_WATCH_WISHLIST.getQuery(), parameters));
+        queryExecutor.updateQuery(this.infModel, QueryUtility.addFilters(WishlistQuery.ADD_WATCH_WISHLIST.getQuery(), parameters));
     }
 
     /**
@@ -49,7 +50,7 @@ public class Wishlist extends TabUtility {
         parameters.put("?email", userEmail);
         parameters.put("?referenceString", reference);
 
-        QueryExecutor.updateQuery(this.infModel, QueryUtility.addFilters(WishlistQuery.REMOVE_WATCH_WISHLIST.getQuery(), parameters));
+        queryExecutor.updateQuery(this.infModel, QueryUtility.addFilters(WishlistQuery.REMOVE_WATCH_WISHLIST.getQuery(), parameters));
 
     }
 }

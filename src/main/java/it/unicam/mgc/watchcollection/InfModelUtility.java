@@ -1,25 +1,28 @@
 package it.unicam.mgc.watchcollection;
 
-import openllet.jena.PelletReasonerFactory;
 import org.apache.jena.rdf.model.InfModel;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
 import org.apache.jena.reasoner.Reasoner;
 import org.apache.jena.riot.RDFDataMgr;
 
-public class InfModelUtility {
+/**
+ * Utility class that provides a method to build
+ * an inference model using a specific reasoner.
+ */
+public class InfModelUtility implements InfModelCreator {
 
     /**
-     * Loading the ontology from OWL file and applying the reasoner.
+     * Creating a model from an OWL file and applying the reasoner.
      *
-     * @return      Model with reasoner.
+     * @param URI           OWL file path.
+     * @param reasoner      Type of reasoner used for inference.
+     * @return              InfModel with specified reasoner.
      */
-    public static InfModel create() {
-        Model data = RDFDataMgr.loadModel("owl/WatchCollection.owl");
-
-        Reasoner reasoner = PelletReasonerFactory.theInstance().create();
-        reasoner = reasoner.bindSchema(data);
-
+    @Override
+    public InfModel create(String URI, Reasoner reasoner) {
+        Model data = RDFDataMgr.loadModel(URI);
+        reasoner.bindSchema(data);
         return ModelFactory.createInfModel(reasoner, data);
     }
 }

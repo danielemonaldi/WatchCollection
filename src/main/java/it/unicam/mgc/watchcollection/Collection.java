@@ -11,6 +11,7 @@ import java.util.LinkedHashMap;
 public class Collection extends TabUtility {
 
     DataParser dataParser = new DataParser();
+    QueryExecutor queryExecutor = new QueryExecutor();
 
     /**
      * Get the watches in the user's collection.
@@ -20,7 +21,7 @@ public class Collection extends TabUtility {
      */
     public ArrayList<LinkedHashMap<String, String>> get(String userEmail) {
 
-        return dataParser.parser(QueryExecutor.selectionQuery(this.infModel, QueryUtility.addFilters(CollectionQuery.GET_USER_COLLECTION.getQuery(), "?email", userEmail)));
+        return dataParser.parser(queryExecutor.selectionQuery(this.infModel, QueryUtility.addFilters(CollectionQuery.GET_USER_COLLECTION.getQuery(), "?email", userEmail)));
     }
 
     /**
@@ -37,7 +38,7 @@ public class Collection extends TabUtility {
         parameters.put("?referenceString", reference);
 
         // Execution of the parameterized query
-        QueryExecutor.updateQuery(this.infModel, QueryUtility.addFilters(CollectionQuery.ADD_WATCH_COLLECTION.getQuery(), parameters));
+        queryExecutor.updateQuery(this.infModel, QueryUtility.addFilters(CollectionQuery.ADD_WATCH_COLLECTION.getQuery(), parameters));
     }
 
     /**
@@ -54,6 +55,6 @@ public class Collection extends TabUtility {
         parameters.put("?referenceString", reference);
 
         // Execution of the parameterized query
-        QueryExecutor.updateQuery(this.infModel, QueryUtility.addFilters(CollectionQuery.REMOVE_WATCH_COLLECTION.getQuery(), parameters));
+        queryExecutor.updateQuery(this.infModel, QueryUtility.addFilters(CollectionQuery.REMOVE_WATCH_COLLECTION.getQuery(), parameters));
     }
 }
