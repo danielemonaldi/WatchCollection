@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="it.unicam.mgc.watchcollection.QueryExecutorTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-06-29T15:13:09" hostname="MASTERMATE" time="0.005">
+  <properties/>
+  <testcase name="selectionQuery()" classname="it.unicam.mgc.watchcollection.QueryExecutorTest" time="0.005"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
