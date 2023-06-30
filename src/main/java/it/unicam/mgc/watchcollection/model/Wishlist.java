@@ -1,11 +1,10 @@
-package it.unicam.mgc.watchcollection.control;
+package it.unicam.mgc.watchcollection.model;
 
-import it.unicam.mgc.watchcollection.model.DataParser;
-import it.unicam.mgc.watchcollection.model.QueryExecutor;
+import it.unicam.mgc.watchcollection.model.utilities.DataParser;
+import it.unicam.mgc.watchcollection.model.utilities.QueryExecutor;
 import it.unicam.mgc.watchcollection.model.TabUtility;
 import it.unicam.mgc.watchcollection.model.queries.WishlistQuery;
 import it.unicam.mgc.watchcollection.model.utilities.QueryUtility;
-
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 

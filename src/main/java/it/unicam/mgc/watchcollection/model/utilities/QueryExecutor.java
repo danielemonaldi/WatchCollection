@@ -1,4 +1,5 @@
-package it.unicam.mgc.watchcollection.model;
+package it.unicam.mgc.watchcollection.model.utilities;
+import it.unicam.mgc.watchcollection.model.SPARQLExecutor;
 import org.apache.jena.query.*;
 import org.apache.jena.rdf.model.Model;
 import java.util.ArrayList;

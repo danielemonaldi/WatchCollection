@@ -1,14 +1,12 @@
 package it.unicam.mgc.watchcollection;
 
-import it.unicam.mgc.watchcollection.model.QueryExecutor;
+import it.unicam.mgc.watchcollection.model.utilities.QueryExecutor;
 import org.apache.jena.query.QuerySolution;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
 import java.util.ArrayList;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 class QueryExecutorTest {

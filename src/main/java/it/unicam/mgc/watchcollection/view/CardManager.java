@@ -14,19 +14,19 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 
 /**
- * provides methods for creating and configuring
+ * Provides methods for creating and configuring
  * cards that represent watches in an application.
  */
-public class CardUtility {
+public class CardManager implements Manager<VBox> {
 
     /**
      * Create a card for each watch in the list, and
      * add the card to a TilePane.
      *
-     * @param list          List containing the parsed of a SPARQL query.
-     * @param tilePane      TilePane where to add cards.
+     * @param list              List containing the parsed of a SPARQL query.
+     * @param tilePane          TilePane where to add cards.
      *
-     * @throws IOException
+     * @throws IOException      File loader exception.
      */
     public void createCards(ArrayList<LinkedHashMap<String, String>> list, TilePane tilePane) throws IOException {
 
@@ -37,7 +37,7 @@ public class CardUtility {
             VBox card = fxmlLoader.load();
 
             // Set the watch information in the card
-            setCardData(hashMap, card);
+            setData(hashMap, card);
             // Add card to TilePane
             tilePane.getChildren().add(card);
         }
@@ -47,9 +47,10 @@ public class CardUtility {
      * Set the basic information of a watch on a card.
      *
      * @param data      HashMap containing basic clock information.
-     * @param card      Card where to add the information.
+     * @param card      Card (Vbox) where to add the information.
      */
-    public void setCardData(LinkedHashMap<String, String> data, VBox card) {
+    @Override
+    public void setData(LinkedHashMap<String, String> data, VBox card) {
 
         ObservableList<Node> cardElements = card.getChildren();
         for (Node node : cardElements) {
@@ -62,9 +63,9 @@ public class CardUtility {
     }
 
     /**
-     * Set the text of a FXML node of type Text
+     * Set the text of a FXML node of type Text.
      *
-     * @param node      FXML Node.
+     * @param node      FXML Node to which to set the text.
      * @param text      Text to set.
      */
     private void setText(Node node, String text) {
@@ -73,14 +74,14 @@ public class CardUtility {
     }
 
     /**
-     * Set the image of a FXML node of type ImageView
+     * Set the image of a FXML node of type ImageView.
      *
-     * @param node          FXML node.
+     * @param node          FXML node to which to set the image.
      * @param imageURL      Image URL.
      */
     private void setImage(Node node, String imageURL) {
         ImageView imageView = (ImageView) node;
-        Image waImage = new Image(imageURL);
-        imageView.setImage(waImage);
+        Image image = new Image(imageURL);
+        imageView.setImage(image);
     }
 }

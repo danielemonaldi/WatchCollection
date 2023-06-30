@@ -1,10 +1,9 @@
 package it.unicam.mgc.watchcollection.model.queries;
 
+/**
+ * SPARQL queries for managing user's wishlist.
+ */
 public enum WishlistQuery implements OntologyQuery {
-
-    /**
-     * SPARQL queries for managing user's wishlist.
-     */
 
     GET_USER_WISHLIST("PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n" +
             "PREFIX foaf: <http://xmlns.com/foaf/0.1/>\n" +

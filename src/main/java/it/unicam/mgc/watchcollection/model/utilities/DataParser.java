@@ -1,9 +1,8 @@
-package it.unicam.mgc.watchcollection.model;
+package it.unicam.mgc.watchcollection.model.utilities;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
-
 import it.unicam.mgc.watchcollection.model.Parser;
 import org.apache.jena.query.QuerySolution;
 

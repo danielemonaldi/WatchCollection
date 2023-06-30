@@ -1,11 +1,9 @@
-package it.unicam.mgc.watchcollection.control;
+package it.unicam.mgc.watchcollection.model;
 
-import it.unicam.mgc.watchcollection.model.DataParser;
-import it.unicam.mgc.watchcollection.model.QueryExecutor;
-import it.unicam.mgc.watchcollection.model.TabUtility;
+import it.unicam.mgc.watchcollection.model.utilities.DataParser;
+import it.unicam.mgc.watchcollection.model.utilities.QueryExecutor;
 import it.unicam.mgc.watchcollection.model.queries.DatabaseQuery;
 import it.unicam.mgc.watchcollection.model.utilities.QueryUtility;
-
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 
@@ -13,7 +11,6 @@ import java.util.LinkedHashMap;
  * Utility with methods for managing the watch database.
  * Each method uses a CollectionQuery SPARQL query.
  */
-
 public class Database extends TabUtility {
 
     DataParser dataParser = new DataParser();
@@ -41,29 +38,6 @@ public class Database extends TabUtility {
     }
 
     /**
-     * Get the dimensions of a specific watch.
-     *
-     * @param reference     Reference string of the watch whose dimensions are to be obtained.
-     * @return              List containing a LinkedHashMap. The LinkedHashMap contains the dimensions of a watch.
-     */
-    public ArrayList<LinkedHashMap<String, String>> getWatchDimensions(String reference) {
-
-        return dataParser.parser(queryExecutor.selectionQuery(this.infModel, QueryUtility.addFilters(DatabaseQuery.GET_WATCH_DIMENSION.getQuery(), "?referenceString", reference)));
-    }
-
-    /**
-     * Get the movement information of a specific watch.
-     *
-     * @param reference     Reference string of a watch whose movement information are to be obtained.
-     * @return              List containing a LinkedHashMap. The LinkedHashMap contains the movement information.
-     */
-    public ArrayList<LinkedHashMap<String, String>> getWatchMovement(String reference) {
-
-        return dataParser.parser(queryExecutor.selectionQuery(this.infModel, QueryUtility.addFilters(DatabaseQuery.GET_WATCH_MOVEMENT.getQuery(), "?referenceString", reference)));
-    }
-
-
-    /**
      * Search in the ontology all the watches of the same model.
      *
      * @param modelName     Name of the model to search.
@@ -88,8 +62,8 @@ public class Database extends TabUtility {
 
     /**
      * Get all watches that have a specific type of movement. The movementType can be:
-     * - AutomaticWinding: watches with automatic winding movement
-     * - ManualWinding:    watches with manual winding movement
+     * - Automatic Winding: watches with automatic winding movement
+     * - Manual Winding:    watches with manual winding movement
      * - Quartz:           watches with quartz movement
      *
      * @param movementType      Movement type.

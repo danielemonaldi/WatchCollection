@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="it.unicam.mgc.watchcollection.QueryUtilityTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2023-06-30T12:57:18" hostname="MASTERMATE" time="0.018">
+  <properties/>
+  <testcase name="testAddFilters()" classname="it.unicam.mgc.watchcollection.QueryUtilityTest" time="0.009"/>
+  <testcase name="addFilters()" classname="it.unicam.mgc.watchcollection.QueryUtilityTest" time="0.005"/>
+  <testcase name="addFiltersContains()" classname="it.unicam.mgc.watchcollection.QueryUtilityTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

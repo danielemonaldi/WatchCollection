@@ -11,9 +11,9 @@
 <?import javafx.scene.text.Text?>
 <?import javafx.scene.text.TextFlow?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1366.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/20.0.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.unicam.mgc.watchcollection.view.DetailsController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1366.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/20.0.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.unicam.mgc.watchcollection.control.DetailsController">
    <children>
-      <HBox prefHeight="768.0" prefWidth="1366.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <HBox fx:id="hbox" prefHeight="768.0" prefWidth="1366.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <VBox alignment="TOP_CENTER" prefHeight="768.0" prefWidth="525.0">
                <children>
@@ -69,7 +69,7 @@
                            </font>
                         </Text>
                         <Label text=" " />
-                        <Text fx:id="introductionYear" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+                        <Text fx:id="introductionYear" strokeType="OUTSIDE" strokeWidth="0.0" text="-">
                            <font>
                               <Font name="Arial" size="18.0" />
                            </font>
@@ -90,7 +90,13 @@
                            </font>
                         </Text>
                         <Label text=" " />
-                        <Text fx:id="listPrice" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="€">
+                           <font>
+                              <Font name="Arial" size="18.0" />
+                           </font>
+                        </Text>
+                        <Label text=" " />
+                        <Text fx:id="listPrice" strokeType="OUTSIDE" strokeWidth="0.0" text="-">
                            <font>
                               <Font name="Arial" size="18.0" />
                            </font>
@@ -111,7 +117,7 @@
                            </font>
                         </Text>
                         <Label text=" " />
-                        <Text fx:id="watchType" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+                        <Text fx:id="watchTypeName" strokeType="OUTSIDE" strokeWidth="0.0" text="-">
                            <font>
                               <Font name="Arial" size="18.0" />
                            </font>
@@ -132,7 +138,13 @@
                            </font>
                         </Text>
                         <Label text=" " />
-                        <Text fx:id="waterResistance" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+                        <Text fx:id="waterResistance" strokeType="OUTSIDE" strokeWidth="0.0" text="-">
+                           <font>
+                              <Font name="Arial" size="18.0" />
+                           </font>
+                        </Text>
+                        <Label text=" " />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="m">
                            <font>
                               <Font name="Arial" size="18.0" />
                            </font>
@@ -161,7 +173,7 @@
                            </font>
                         </Text>
                         <Label text=" " />
-                        <Text fx:id="caseMaterial" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+                        <Text fx:id="caseMaterialName" strokeType="OUTSIDE" strokeWidth="0.0" text="-">
                            <font>
                               <Font name="Arial" size="18.0" />
                            </font>
@@ -182,7 +194,7 @@
                            </font>
                         </Text>
                         <Label text=" " />
-                        <Text fx:id="strapMaterial" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+                        <Text fx:id="strapMaterialName" strokeType="OUTSIDE" strokeWidth="0.0" text="-">
                            <font>
                               <Font name="Arial" size="18.0" />
                            </font>
@@ -203,7 +215,7 @@
                            </font>
                         </Text>
                         <Label text=" " />
-                        <Text fx:id="glassMaterial" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+                        <Text fx:id="glassMaterialName" strokeType="OUTSIDE" strokeWidth="0.0" text="-">
                            <font>
                               <Font name="Arial" size="18.0" />
                            </font>
@@ -232,7 +244,13 @@
                            </font>
                         </Text>
                         <Label text=" " />
-                        <Text fx:id="diameter" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+                        <Text fx:id="diameter" strokeType="OUTSIDE" strokeWidth="0.0" text="-">
+                           <font>
+                              <Font name="Arial" size="18.0" />
+                           </font>
+                        </Text>
+                        <Label text=" " />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="mm">
                            <font>
                               <Font name="Arial" size="18.0" />
                            </font>
@@ -253,7 +271,13 @@
                            </font>
                         </Text>
                         <Label text=" " />
-                        <Text fx:id="lugToLug" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+                        <Text fx:id="lugToLug" strokeType="OUTSIDE" strokeWidth="0.0" text="-">
+                           <font>
+                              <Font name="Arial" size="18.0" />
+                           </font>
+                        </Text>
+                        <Label text=" " />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="mm">
                            <font>
                               <Font name="Arial" size="18.0" />
                            </font>
@@ -274,7 +298,13 @@
                            </font>
                         </Text>
                         <Label text=" " />
-                        <Text fx:id="thickness" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+                        <Text fx:id="thickness" strokeType="OUTSIDE" strokeWidth="0.0" text="-">
+                           <font>
+                              <Font name="Arial" size="18.0" />
+                           </font>
+                        </Text>
+                        <Label text=" " />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="mm">
                            <font>
                               <Font name="Arial" size="18.0" />
                            </font>
@@ -295,7 +325,13 @@
                            </font>
                         </Text>
                         <Label text=" " />
-                        <Text fx:id="handle" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+                        <Text fx:id="handle" strokeType="OUTSIDE" strokeWidth="0.0" text="-">
+                           <font>
+                              <Font name="Arial" size="18.0" />
+                           </font>
+                        </Text>
+                        <Label text=" " />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="mm">
                            <font>
                               <Font name="Arial" size="18.0" />
                            </font>
@@ -350,7 +386,7 @@
                            </font>
                         </Text>
                         <Label text=" " />
-                        <Text fx:id="movementType" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+                        <Text fx:id="movementType" strokeType="OUTSIDE" strokeWidth="0.0" text="-">
                            <font>
                               <Font name="Arial" size="18.0" />
                            </font>
@@ -365,13 +401,40 @@
                         <Insets />
                      </opaqueInsets>
                      <children>
-                        <Text fx:id="varText" strokeType="OUTSIDE" strokeWidth="0.0" text="Frequency:">
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Frequency:">
                            <font>
                               <Font name="Arial Bold" size="18.0" />
                            </font>
                         </Text>
                         <Label text=" " />
-                        <Text fx:id="varValue" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+                        <Text fx:id="frequency" strokeType="OUTSIDE" strokeWidth="0.0" text="-">
+                           <font>
+                              <Font name="Arial" size="18.0" />
+                           </font>
+                        </Text>
+                        <Label text=" " />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="VPH">
+                           <font>
+                              <Font name="Arial" size="18.0" />
+                           </font>
+                        </Text>
+                     </children>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </TextFlow>
+                  <TextFlow prefHeight="0.0" prefWidth="122.0">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Battery type:">
+                           <font>
+                              <Font name="Arial Bold" size="18.0" />
+                           </font>
+                        </Text>
+                        <Label text=" " />
+                        <Text fx:id="batteryType" strokeType="OUTSIDE" strokeWidth="0.0" text="-">
                            <font>
                               <Font name="Arial" size="18.0" />
                            </font>
@@ -392,7 +455,13 @@
                            </font>
                         </Text>
                         <Label text=" " />
-                        <Text fx:id="reserve" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+                        <Text fx:id="reserve" strokeType="OUTSIDE" strokeWidth="0.0" text="-">
+                           <font>
+                              <Font name="Arial" size="18.0" />
+                           </font>
+                        </Text>
+                        <Label text=" " />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="h">
                            <font>
                               <Font name="Arial" size="18.0" />
                            </font>
@@ -413,7 +482,7 @@
                            </font>
                         </Text>
                         <Label text=" " />
-                        <Text fx:id="jewels" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+                        <Text fx:id="jewels" strokeType="OUTSIDE" strokeWidth="0.0" text="-">
                            <font>
                               <Font name="Arial" size="18.0" />
                            </font>
@@ -434,7 +503,7 @@
                            </font>
                         </Text>
                         <Label text=" " />
-                        <Text fx:id="coscCertification" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+                        <Text fx:id="coscCertification" strokeType="OUTSIDE" strokeWidth="0.0" text="-">
                            <font>
                               <Font name="Arial" size="18.0" />
                            </font>
@@ -455,7 +524,7 @@
                            </font>
                         </Text>
                         <Label text=" " />
-                        <Text fx:id="complication" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+                        <Text fx:id="complicationName" strokeType="OUTSIDE" strokeWidth="0.0" text="-">
                            <font>
                               <Font name="Arial" size="18.0" />
                            </font>

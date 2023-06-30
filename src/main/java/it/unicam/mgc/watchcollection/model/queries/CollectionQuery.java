@@ -1,11 +1,9 @@
 package it.unicam.mgc.watchcollection.model.queries;
 
+/**
+ * SPARQL queries for managing user's collection.
+ */
 public enum CollectionQuery implements OntologyQuery {
-
-    /**
-     * SPARQL queries for managing user's collection.
-     */
-
     GET_USER_COLLECTION("PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n" +
             "PREFIX foaf: <http://xmlns.com/foaf/0.1/>\n" +
             "PREFIX wa: <http://www.unicam.it/WatchCollection#>\n" +

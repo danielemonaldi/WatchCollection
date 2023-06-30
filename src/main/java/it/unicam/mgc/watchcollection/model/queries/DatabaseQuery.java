@@ -1,10 +1,9 @@
 package it.unicam.mgc.watchcollection.model.queries;
 
+/**
+ * SPARQL queries for managing the watch database.
+ */
 public enum DatabaseQuery implements OntologyQuery {
-
-    /**
-     * SPARQL queries for managing the watch database.
-     */
 
     GET_ALL_WATCHES_BASIC("PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n" +
             "PREFIX foaf: <http://xmlns.com/foaf/0.1/>\n" +
@@ -20,11 +19,15 @@ public enum DatabaseQuery implements OntologyQuery {
             "  ?reference wa:reference ?referenceString ;\n" +
             "  wa:imageLink ?watchImage .\n" +
             "}"),
+
     GET_WATCH_DETAILS("PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n" +
+            "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n" +
             "PREFIX foaf: <http://xmlns.com/foaf/0.1/>\n" +
             "PREFIX wa: <http://www.unicam.it/WatchCollection#>\n" +
             "\n" +
-            "SELECT ?watchImage ?organizationName ?modelName ?referenceString ?introductionYear ?listPrice ?waterResistance ?watchTypeName ?caseMaterialName ?strapMaterialName ?glassMaterialName\n" +
+            "SELECT ?watchImage ?organizationName ?modelName ?referenceString ?introductionYear ?listPrice ?waterResistance ?watchTypeName ?caseMaterialName ?strapMaterialName ?glassMaterialName " +
+            "?diameter ?lugToLug ?thickness ?handle " +
+            "?watchMaker ?movementName ?movementType ?rotor ?reserve ?jewels ?coscCertification ?complicationName ?movementImage ?frequency ?batteryType\n" +
             "WHERE {\n" +
             "  ?organization rdf:type foaf:Organization ;\n" +
             "  foaf:name ?organizationName ;\n" +
@@ -39,53 +42,36 @@ public enum DatabaseQuery implements OntologyQuery {
             "  wa:hasWatchType ?watchType ;\n" +
             "  wa:hasCaseMaterial ?caseMaterial ;\n" +
             "  wa:hasStrapMaterial ?strapMaterial ;\n" +
-            "  wa:hasGlassMaterial ?glassMaterial .\n" +
+            "  wa:hasGlassMaterial ?glassMaterial ;\n" +
+            "  wa:hasDimension ?dimension ;\n" +
+            "  wa:hasMovement ?movement .\n" +
             "  ?watchType foaf:name ?watchTypeName .\n" +
             "  ?caseMaterial foaf:name ?caseMaterialName .\n" +
             "  ?strapMaterial foaf:name ?strapMaterialName .\n" +
             "  ?glassMaterial foaf:name ?glassMaterialName .\n" +
-            "}"),
-
-    GET_WATCH_DIMENSION("PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n" +
-            "PREFIX foaf: <http://xmlns.com/foaf/0.1/>\n" +
-            "PREFIX wa: <http://www.unicam.it/WatchCollection#>\n" +
-            "\n" +
-            "SELECT ?diameter ?lugToLug ?thickness ?handle\n" +
-            "WHERE {\n" +
-            "  ?reference rdf:type wa:Reference ;\n" +
-            "  wa:reference ?referenceString ;\n" +
-            "  wa:hasDimension ?dimension .\n" +
             "  ?dimension wa:diameter ?diameter ;\n" +
             "  wa:lugToLug ?lugToLug ;\n" +
             "  wa:thickness ?thickness ;\n" +
             "  wa:handle ?handle .\n" +
-            "}"),
-    GET_WATCH_MOVEMENT("PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n" +
-            "PREFIX foaf: <http://xmlns.com/foaf/0.1/>\n" +
-            "PREFIX wa: <http://www.unicam.it/WatchCollection#>\n" +
-            "\n" +
-            "SELECT ?watchMaker ?movementName ?rotor ?reserve ?jewels ?frequency ?coscCertification ?batteryType ?movementImage ?complicationName\n" +
-            "WHERE {\n" +
-            "  ?reference rdf:type wa:Reference ;\n" +
-            "  wa:reference ?referenceString ;\n" +
-            "  wa:hasMovement ?movement .\n" +
-            "  ?organization foaf:name ?watchMaker .\n" +
-            "  ?movement foaf:maker ?organization ;\n" +
+            "  ?movement foaf:maker ?movementOrganization ;\n" +
             "  foaf:name ?movementName ;\n" +
             "  wa:imageLink ?movementImage ;\n" +
             "  wa:reserve ?reserve ;\n" +
             "  wa:jewels ?jewels ;\n" +
             "  wa:coscCertification ?coscCertification ;\n" +
-            "  wa:hasComplication ?complication .\n" +
+            "  wa:hasComplication ?complication ;\n" +
+            "  rdf:type ?class .\n" +
             "  ?complication foaf:name ?complicationName .\n" +
-            "  OPTIONAL { ?movement wa:rotor ?rotor . } \n" +
+            "  ?movementOrganization foaf:name ?watchMaker .\n" +
+            "  ?class rdfs:label ?movementType .\n" +
             "  OPTIONAL { ?movement wa:frequency ?frequency . } \n" +
             "  OPTIONAL { ?movement wa:batteryType ?batteryType . } \n" +
             "}"),
+
     GET_WATCH_BY_MOVEMENT_TYPE("PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n" +
+            "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n" +
             "PREFIX foaf: <http://xmlns.com/foaf/0.1/>\n" +
             "PREFIX wa: <http://www.unicam.it/WatchCollection#>\n" +
-            "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n" +
             "\n" +
             "SELECT ?watchImage ?organizationName ?modelName ?referenceString\n" +
             "WHERE {\n" +

@@ -2,7 +2,7 @@ package it.unicam.mgc.watchcollection;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import it.unicam.mgc.watchcollection.model.DataParser;
+import it.unicam.mgc.watchcollection.model.utilities.DataParser;
 import org.apache.jena.query.*;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
