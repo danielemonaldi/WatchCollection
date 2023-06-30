@@ -43,13 +43,13 @@ public enum DatabaseQuery implements OntologyQuery {
             "  wa:hasCaseMaterial ?caseMaterial ;\n" +
             "  wa:hasStrapMaterial ?strapMaterial ;\n" +
             "  wa:hasGlassMaterial ?glassMaterial ;\n" +
-            "  wa:hasDimension ?dimension ;\n" +
+            "  wa:hasDimensions ?dimensions ;\n" +
             "  wa:hasMovement ?movement .\n" +
             "  ?watchType foaf:name ?watchTypeName .\n" +
             "  ?caseMaterial foaf:name ?caseMaterialName .\n" +
             "  ?strapMaterial foaf:name ?strapMaterialName .\n" +
             "  ?glassMaterial foaf:name ?glassMaterialName .\n" +
-            "  ?dimension wa:diameter ?diameter ;\n" +
+            "  ?dimensions wa:diameter ?diameter ;\n" +
             "  wa:lugToLug ?lugToLug ;\n" +
             "  wa:thickness ?thickness ;\n" +
             "  wa:handle ?handle .\n" +

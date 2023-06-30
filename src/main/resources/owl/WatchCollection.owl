@@ -74,14 +74,14 @@
     
 
 
-    <!-- http://www.unicam.it/WatchCollection#hasDimension -->
+    <!-- http://www.unicam.it/WatchCollection#hasDimensions -->
 
-    <owl:ObjectProperty rdf:about="http://www.unicam.it/WatchCollection#hasDimension">
+    <owl:ObjectProperty rdf:about="http://www.unicam.it/WatchCollection#hasDimensions">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
         <rdfs:domain rdf:resource="http://www.unicam.it/WatchCollection#Reference"/>
-        <rdfs:range rdf:resource="http://www.unicam.it/WatchCollection#Dimension"/>
+        <rdfs:range rdf:resource="http://www.unicam.it/WatchCollection#Dimensions"/>
     </owl:ObjectProperty>
     
 
@@ -331,7 +331,7 @@
 
     <owl:DatatypeProperty rdf:about="http://www.unicam.it/WatchCollection#diameter">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
-        <rdfs:domain rdf:resource="http://www.unicam.it/WatchCollection#Dimension"/>
+        <rdfs:domain rdf:resource="http://www.unicam.it/WatchCollection#Dimensions"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
         <rdfs:comment xml:lang="en">Indicates the diameter in millimeters of a watch case.</rdfs:comment>
     </owl:DatatypeProperty>
@@ -364,7 +364,7 @@
 
     <owl:DatatypeProperty rdf:about="http://www.unicam.it/WatchCollection#handle">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
-        <rdfs:domain rdf:resource="http://www.unicam.it/WatchCollection#Dimension"/>
+        <rdfs:domain rdf:resource="http://www.unicam.it/WatchCollection#Dimensions"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
         <rdfs:comment xml:lang="en">Indicates the handles distance in millimeters of a watch case.</rdfs:comment>
     </owl:DatatypeProperty>
@@ -425,7 +425,7 @@
 
     <owl:DatatypeProperty rdf:about="http://www.unicam.it/WatchCollection#lugToLug">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
-        <rdfs:domain rdf:resource="http://www.unicam.it/WatchCollection#Dimension"/>
+        <rdfs:domain rdf:resource="http://www.unicam.it/WatchCollection#Dimensions"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
         <rdfs:comment xml:lang="en">Indicates the lug to lug distance in millimeters of a watch case.</rdfs:comment>
     </owl:DatatypeProperty>
@@ -486,7 +486,7 @@
 
     <owl:DatatypeProperty rdf:about="http://www.unicam.it/WatchCollection#thickness">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
-        <rdfs:domain rdf:resource="http://www.unicam.it/WatchCollection#Dimension"/>
+        <rdfs:domain rdf:resource="http://www.unicam.it/WatchCollection#Dimensions"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
         <rdfs:comment xml:lang="en">Indicates the thickness in millimeters of a watch case.</rdfs:comment>
     </owl:DatatypeProperty>
@@ -642,9 +642,9 @@
     
 
 
-    <!-- http://www.unicam.it/WatchCollection#Dimension -->
+    <!-- http://www.unicam.it/WatchCollection#Dimensions -->
 
-    <owl:Class rdf:about="http://www.unicam.it/WatchCollection#Dimension">
+    <owl:Class rdf:about="http://www.unicam.it/WatchCollection#Dimensions">
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.unicam.it/WatchCollection#diameter"/>
@@ -861,9 +861,9 @@
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.unicam.it/WatchCollection#hasDimension"/>
+                <owl:onProperty rdf:resource="http://www.unicam.it/WatchCollection#hasDimensions"/>
                 <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onClass rdf:resource="http://www.unicam.it/WatchCollection#Dimension"/>
+                <owl:onClass rdf:resource="http://www.unicam.it/WatchCollection#Dimensions"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -1057,7 +1057,7 @@
                 </owl:intersectionOf>
             </owl:Class>
         </rdfs:subClassOf>
-        <rdfs:comment xml:lang="en">The class contains organizations that manufacture watches.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The class contains organizations that manufacture watches or movement.</rdfs:comment>
     </rdf:Description>
     
 
@@ -1113,7 +1113,7 @@
     <!-- http://www.unicam.it/WatchCollection#ChronomasterOrginalDimension -->
 
     <owl:NamedIndividual rdf:about="http://www.unicam.it/WatchCollection#ChronomasterOrginalDimension">
-        <rdf:type rdf:resource="http://www.unicam.it/WatchCollection#Dimension"/>
+        <rdf:type rdf:resource="http://www.unicam.it/WatchCollection#Dimensions"/>
         <WatchCollection:diameter rdf:datatype="http://www.w3.org/2001/XMLSchema#float">38.0</WatchCollection:diameter>
         <WatchCollection:handle rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">19</WatchCollection:handle>
         <WatchCollection:lugToLug rdf:datatype="http://www.w3.org/2001/XMLSchema#float">44.2</WatchCollection:lugToLug>
@@ -1154,7 +1154,7 @@
     <!-- http://www.unicam.it/WatchCollection#DayDate40Dimension -->
 
     <owl:NamedIndividual rdf:about="http://www.unicam.it/WatchCollection#DayDate40Dimension">
-        <rdf:type rdf:resource="http://www.unicam.it/WatchCollection#Dimension"/>
+        <rdf:type rdf:resource="http://www.unicam.it/WatchCollection#Dimensions"/>
         <WatchCollection:diameter rdf:datatype="http://www.w3.org/2001/XMLSchema#float">40.0</WatchCollection:diameter>
         <WatchCollection:handle rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">20</WatchCollection:handle>
         <WatchCollection:lugToLug rdf:datatype="http://www.w3.org/2001/XMLSchema#float">47.2</WatchCollection:lugToLug>
@@ -1175,7 +1175,7 @@
     <!-- http://www.unicam.it/WatchCollection#DaytonaDimension -->
 
     <owl:NamedIndividual rdf:about="http://www.unicam.it/WatchCollection#DaytonaDimension">
-        <rdf:type rdf:resource="http://www.unicam.it/WatchCollection#Dimension"/>
+        <rdf:type rdf:resource="http://www.unicam.it/WatchCollection#Dimensions"/>
         <WatchCollection:diameter rdf:datatype="http://www.w3.org/2001/XMLSchema#float">40.0</WatchCollection:diameter>
         <WatchCollection:handle rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">20</WatchCollection:handle>
         <WatchCollection:lugToLug rdf:datatype="http://www.w3.org/2001/XMLSchema#float">45.6</WatchCollection:lugToLug>
@@ -1233,7 +1233,7 @@
     <owl:NamedIndividual rdf:about="http://www.unicam.it/WatchCollection#L34104936">
         <rdf:type rdf:resource="http://www.unicam.it/WatchCollection#Reference"/>
         <WatchCollection:hasCaseMaterial rdf:resource="http://www.unicam.it/WatchCollection#StainlessSteel"/>
-        <WatchCollection:hasDimension rdf:resource="http://www.unicam.it/WatchCollection#Spirit37Dimension"/>
+        <WatchCollection:hasDimensions rdf:resource="http://www.unicam.it/WatchCollection#Spirit37Dimension"/>
         <WatchCollection:hasGlassMaterial rdf:resource="http://www.unicam.it/WatchCollection#Sapphire"/>
         <WatchCollection:hasModel rdf:resource="http://www.unicam.it/WatchCollection#Spirit37"/>
         <WatchCollection:hasMovement rdf:resource="http://www.unicam.it/WatchCollection#LonginesL8884"/>
@@ -1297,7 +1297,7 @@
     <!-- http://www.unicam.it/WatchCollection#Moonwatch42Dimension -->
 
     <owl:NamedIndividual rdf:about="http://www.unicam.it/WatchCollection#Moonwatch42Dimension">
-        <rdf:type rdf:resource="http://www.unicam.it/WatchCollection#Dimension"/>
+        <rdf:type rdf:resource="http://www.unicam.it/WatchCollection#Dimensions"/>
         <WatchCollection:diameter rdf:datatype="http://www.w3.org/2001/XMLSchema#float">42.0</WatchCollection:diameter>
         <WatchCollection:handle rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">20</WatchCollection:handle>
         <WatchCollection:lugToLug rdf:datatype="http://www.w3.org/2001/XMLSchema#float">47.0</WatchCollection:lugToLug>
@@ -1347,7 +1347,7 @@
     <!-- http://www.unicam.it/WatchCollection#PRX40Dimension -->
 
     <owl:NamedIndividual rdf:about="http://www.unicam.it/WatchCollection#PRX40Dimension">
-        <rdf:type rdf:resource="http://www.unicam.it/WatchCollection#Dimension"/>
+        <rdf:type rdf:resource="http://www.unicam.it/WatchCollection#Dimensions"/>
         <WatchCollection:diameter rdf:datatype="http://www.w3.org/2001/XMLSchema#float">40.0</WatchCollection:diameter>
         <WatchCollection:handle rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">12</WatchCollection:handle>
         <WatchCollection:lugToLug rdf:datatype="http://www.w3.org/2001/XMLSchema#float">44.0</WatchCollection:lugToLug>
@@ -1450,7 +1450,7 @@
     <!-- http://www.unicam.it/WatchCollection#Spirit37Dimension -->
 
     <owl:NamedIndividual rdf:about="http://www.unicam.it/WatchCollection#Spirit37Dimension">
-        <rdf:type rdf:resource="http://www.unicam.it/WatchCollection#Dimension"/>
+        <rdf:type rdf:resource="http://www.unicam.it/WatchCollection#Dimensions"/>
         <WatchCollection:diameter rdf:datatype="http://www.w3.org/2001/XMLSchema#float">37.0</WatchCollection:diameter>
         <WatchCollection:handle rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">19</WatchCollection:handle>
         <WatchCollection:lugToLug rdf:datatype="http://www.w3.org/2001/XMLSchema#float">45.0</WatchCollection:lugToLug>
@@ -1473,7 +1473,7 @@
     <owl:NamedIndividual rdf:about="http://www.unicam.it/WatchCollection#T1374101109100">
         <rdf:type rdf:resource="http://www.unicam.it/WatchCollection#Reference"/>
         <WatchCollection:hasCaseMaterial rdf:resource="http://www.unicam.it/WatchCollection#StainlessSteel"/>
-        <WatchCollection:hasDimension rdf:resource="http://www.unicam.it/WatchCollection#PRX40Dimension"/>
+        <WatchCollection:hasDimensions rdf:resource="http://www.unicam.it/WatchCollection#PRX40Dimension"/>
         <WatchCollection:hasGlassMaterial rdf:resource="http://www.unicam.it/WatchCollection#Sapphire"/>
         <WatchCollection:hasModel rdf:resource="http://www.unicam.it/WatchCollection#PRX40"/>
         <WatchCollection:hasMovement rdf:resource="http://www.unicam.it/WatchCollection#F06115"/>
@@ -1556,7 +1556,7 @@
     <owl:NamedIndividual rdf:about="http://www.unicam.it/WatchCollection#0332003600">
         <rdf:type rdf:resource="http://www.unicam.it/WatchCollection#Reference"/>
         <WatchCollection:hasCaseMaterial rdf:resource="http://www.unicam.it/WatchCollection#StainlessSteel"/>
-        <WatchCollection:hasDimension rdf:resource="http://www.unicam.it/WatchCollection#ChronomasterOrginalDimension"/>
+        <WatchCollection:hasDimensions rdf:resource="http://www.unicam.it/WatchCollection#ChronomasterOrginalDimension"/>
         <WatchCollection:hasGlassMaterial rdf:resource="http://www.unicam.it/WatchCollection#Sapphire"/>
         <WatchCollection:hasModel rdf:resource="http://www.unicam.it/WatchCollection#ChronomasterOrginal"/>
         <WatchCollection:hasMovement rdf:resource="http://www.unicam.it/WatchCollection#ElPrimero3600"/>
@@ -1576,7 +1576,7 @@
     <owl:NamedIndividual rdf:about="http://www.unicam.it/WatchCollection#126506">
         <rdf:type rdf:resource="http://www.unicam.it/WatchCollection#Reference"/>
         <WatchCollection:hasCaseMaterial rdf:resource="http://www.unicam.it/WatchCollection#Platinum"/>
-        <WatchCollection:hasDimension rdf:resource="http://www.unicam.it/WatchCollection#DaytonaDimension"/>
+        <WatchCollection:hasDimensions rdf:resource="http://www.unicam.it/WatchCollection#DaytonaDimension"/>
         <WatchCollection:hasGlassMaterial rdf:resource="http://www.unicam.it/WatchCollection#Sapphire"/>
         <WatchCollection:hasModel rdf:resource="http://www.unicam.it/WatchCollection#CosmographDaytona"/>
         <WatchCollection:hasMovement rdf:resource="http://www.unicam.it/WatchCollection#Rolex4131"/>
@@ -1596,7 +1596,7 @@
     <owl:NamedIndividual rdf:about="http://www.unicam.it/WatchCollection#228235">
         <rdf:type rdf:resource="http://www.unicam.it/WatchCollection#Reference"/>
         <WatchCollection:hasCaseMaterial rdf:resource="http://www.unicam.it/WatchCollection#RoseGold"/>
-        <WatchCollection:hasDimension rdf:resource="http://www.unicam.it/WatchCollection#DayDate40Dimension"/>
+        <WatchCollection:hasDimensions rdf:resource="http://www.unicam.it/WatchCollection#DayDate40Dimension"/>
         <WatchCollection:hasGlassMaterial rdf:resource="http://www.unicam.it/WatchCollection#Sapphire"/>
         <WatchCollection:hasModel rdf:resource="http://www.unicam.it/WatchCollection#DayDate40"/>
         <WatchCollection:hasMovement rdf:resource="http://www.unicam.it/WatchCollection#Rolex3255"/>
@@ -1625,7 +1625,7 @@
     <owl:NamedIndividual rdf:about="http://www.unicam.it/WatchCollection#31030425001001">
         <rdf:type rdf:resource="http://www.unicam.it/WatchCollection#Reference"/>
         <WatchCollection:hasCaseMaterial rdf:resource="http://www.unicam.it/WatchCollection#StainlessSteel"/>
-        <WatchCollection:hasDimension rdf:resource="http://www.unicam.it/WatchCollection#Moonwatch42Dimension"/>
+        <WatchCollection:hasDimensions rdf:resource="http://www.unicam.it/WatchCollection#Moonwatch42Dimension"/>
         <WatchCollection:hasGlassMaterial rdf:resource="http://www.unicam.it/WatchCollection#AcrylicCrystal"/>
         <WatchCollection:hasModel rdf:resource="http://www.unicam.it/WatchCollection#SpeedmasterMoonwatch"/>
         <WatchCollection:hasMovement rdf:resource="http://www.unicam.it/WatchCollection#Omega3861"/>
