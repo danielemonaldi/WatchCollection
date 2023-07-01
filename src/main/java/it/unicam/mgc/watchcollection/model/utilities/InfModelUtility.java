@@ -1,6 +1,6 @@
 package it.unicam.mgc.watchcollection.model.utilities;
 
-import it.unicam.mgc.watchcollection.model.InfModelCreator;
+import it.unicam.mgc.watchcollection.model.ModelCreator;
 import org.apache.jena.rdf.model.InfModel;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
@@ -11,7 +11,7 @@ import org.apache.jena.riot.RDFDataMgr;
  * Utility class that provides a method to build
  * an inference model using a specific reasoner.
  */
-public class InfModelUtility implements InfModelCreator {
+public class InfModelUtility implements ModelCreator {
 
     /**
      * Creating a model from an OWL file and applying the reasoner.

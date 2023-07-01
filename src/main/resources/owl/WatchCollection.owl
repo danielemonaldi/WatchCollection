@@ -1526,7 +1526,9 @@
 
     <owl:NamedIndividual rdf:about="http://www.unicam.it/WatchCollection#UserCollection">
         <rdf:type rdf:resource="http://www.unicam.it/WatchCollection#Collection"/>
+        <WatchCollection:contains rdf:resource="http://www.unicam.it/WatchCollection#0332003600"/>
         <WatchCollection:contains rdf:resource="http://www.unicam.it/WatchCollection#228235"/>
+        <WatchCollection:contains rdf:resource="http://www.unicam.it/WatchCollection#31030425001001"/>
     </owl:NamedIndividual>
     
 
@@ -1535,6 +1537,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.unicam.it/WatchCollection#UserWishlist">
         <rdf:type rdf:resource="http://www.unicam.it/WatchCollection#Wishlist"/>
+        <WatchCollection:contains rdf:resource="http://www.unicam.it/WatchCollection#L34104936"/>
         <WatchCollection:contains rdf:resource="http://www.unicam.it/WatchCollection#126506"/>
     </owl:NamedIndividual>
     
