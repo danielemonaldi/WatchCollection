@@ -1,13 +1,20 @@
 package it.unicam.mgc.watchcollection.view;
 
 import javafx.scene.Node;
-import java.util.LinkedHashMap;
 
 /**
  * The interface defines a contract for a class that manages and sets data on objects of type Node.
  *
- * @param <T>       Node type object.
+ * @param <M>       Data structure;
+ * @param <T>       JavaFX Node object.
  */
-public interface Manager<T extends Node> {
-    void setData(LinkedHashMap<String, String> data, T node);
+public interface Manager<M, T extends Node> {
+
+    /**
+     * Sets the data contained in a data structure to a JavaFX element.
+     *
+     * @param data      Data structure.
+     * @param node      JavaFX Node object.
+     */
+    void setData(M data, T node);
 }

@@ -9,7 +9,6 @@ import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.TilePane;
-
 import java.io.IOException;
 
 public class AppController {
@@ -63,11 +62,11 @@ public class AppController {
     private final String userEmail = "user@gmail.com";
 
     // UI Tab utilities
-    Database database = new Database();
-    Collection collection = new Collection();
-    Wishlist wishlist = new Wishlist();
+    private final Database database = new Database();
+    private final Collection collection = new Collection();
+    private final Wishlist wishlist = new Wishlist();
 
-    CardManager cardManager = new CardManager();
+    private final CardManager cardManager = new CardManager();
 
     /**
      * Method used to initialize this controller. This method is invoked by JavaFX.

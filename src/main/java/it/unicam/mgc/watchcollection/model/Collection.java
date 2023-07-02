@@ -13,8 +13,8 @@ import java.util.LinkedHashMap;
  */
 public class Collection extends TabUtility {
 
-    DataParser dataParser = new DataParser();
-    QueryExecutor queryExecutor = new QueryExecutor();
+    private final DataParser dataParser = new DataParser();
+    private final QueryExecutor queryExecutor = new QueryExecutor();
 
     /**
      * Get the watches in the user's collection.

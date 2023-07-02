@@ -20,7 +20,7 @@ import java.util.LinkedHashMap;
  * Provides methods for creating and configuring
  * of the window containing the detailed information of a watch.
  */
-public class DetailsManager implements Manager<HBox> {
+public class DetailsManager implements Manager<LinkedHashMap<String, String>, HBox> {
 
     /**
      * Create and open the screen to view the

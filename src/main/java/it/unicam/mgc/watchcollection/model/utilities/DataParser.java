@@ -6,7 +6,7 @@ import java.util.LinkedHashMap;
 import it.unicam.mgc.watchcollection.model.Parser;
 import org.apache.jena.query.QuerySolution;
 
-public class DataParser implements Parser<LinkedHashMap<String, String>> {
+public class DataParser implements Parser<LinkedHashMap<String, String>, QuerySolution> {
 
     /**
      * Parse the result of a query into a data structure.
@@ -19,7 +19,7 @@ public class DataParser implements Parser<LinkedHashMap<String, String>> {
      * respective variable,
      *
      * @param querySolutions        Solution of the query.
-     * @return                      List of LinkedHashMap.
+     * @return                      List of LinkedHashMap containing the query result data.
      */
     @Override
     public ArrayList<LinkedHashMap<String, String>> parser(ArrayList<QuerySolution> querySolutions) {

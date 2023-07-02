@@ -20,7 +20,7 @@ public class CardController {
     @FXML
     private Hyperlink details;
 
-    DetailsManager detailsManager = new DetailsManager();
+    private final DetailsManager detailsManager = new DetailsManager();
 
     /**
      * Method used to initialize this controller. This method is invoked by JavaFX.

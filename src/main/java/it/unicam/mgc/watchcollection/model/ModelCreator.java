@@ -4,8 +4,8 @@ import org.apache.jena.rdf.model.InfModel;
 import org.apache.jena.reasoner.Reasoner;
 
 /**
- * Defines the contract for building an inference model
- * from an OWL file and applying a reasoner.
+ * This interface defines the contract for building an
+ * inference model from an OWL file and applying a reasoner.
  */
 public interface ModelCreator {
 

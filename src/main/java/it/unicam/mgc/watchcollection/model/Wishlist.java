@@ -2,7 +2,6 @@ package it.unicam.mgc.watchcollection.model;
 
 import it.unicam.mgc.watchcollection.model.utilities.DataParser;
 import it.unicam.mgc.watchcollection.model.utilities.QueryExecutor;
-import it.unicam.mgc.watchcollection.model.TabUtility;
 import it.unicam.mgc.watchcollection.model.queries.WishlistQuery;
 import it.unicam.mgc.watchcollection.model.utilities.QueryUtility;
 import java.util.ArrayList;
@@ -10,12 +9,12 @@ import java.util.LinkedHashMap;
 
 /*
  * Utility with methods for managing the user wishlist.
- * Each method uses a Wishlist SPARQL query.
+ * Each method uses a WishlistQuery SPARQL query.
  */
 public class Wishlist extends TabUtility {
 
-    DataParser dataParser = new DataParser();
-    QueryExecutor queryExecutor = new QueryExecutor();
+    private final DataParser dataParser = new DataParser();
+    private final QueryExecutor queryExecutor = new QueryExecutor();
 
     /**
      * Get the watches in the user's wishlist.

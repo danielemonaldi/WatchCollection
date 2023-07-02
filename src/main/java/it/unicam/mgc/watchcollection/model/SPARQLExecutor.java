@@ -1,9 +1,13 @@
 package it.unicam.mgc.watchcollection.model;
 
 import org.apache.jena.rdf.model.Model;
+import java.util.ArrayList;
 
-import java.util.List;
-
+/**
+ * This interface defines a contract for classes that want to implement a SPARQL query executor.
+ *
+ * @param <T>   Data type or structure contained in the ArrayList of query result.
+ */
 public interface SPARQLExecutor<T> {
 
     /**
@@ -13,7 +17,7 @@ public interface SPARQLExecutor<T> {
      * @param query     SPARQL query to perform.
      * @return          List of results of type T.
      */
-    List<T> selectionQuery(Model model, String query);
+    ArrayList<T> selectionQuery(Model model, String query);
 
     /**
      * Performs an UPDATE SPARQL query (INSERT or DELETE) on the ontology.

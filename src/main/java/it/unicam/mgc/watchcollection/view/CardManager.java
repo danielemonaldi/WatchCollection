@@ -8,7 +8,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.TilePane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
@@ -17,7 +16,7 @@ import java.util.LinkedHashMap;
  * Provides methods for creating and configuring
  * cards that represent watches in an application.
  */
-public class CardManager implements Manager<VBox> {
+public class CardManager implements Manager<LinkedHashMap<String, String>, VBox> {
 
     /**
      * Create a card for each watch in the list, and

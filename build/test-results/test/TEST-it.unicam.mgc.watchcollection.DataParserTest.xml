@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="it.unicam.mgc.watchcollection.DataParserTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-06-30T12:57:17" hostname="MASTERMATE" time="0.847">
+<testsuite name="it.unicam.mgc.watchcollection.DataParserTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-07-02T13:03:42" hostname="MASTERMATE" time="0.493">
   <properties/>
-  <testcase name="testParser()" classname="it.unicam.mgc.watchcollection.DataParserTest" time="0.847"/>
+  <testcase name="testParser()" classname="it.unicam.mgc.watchcollection.DataParserTest" time="0.493"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

@@ -19,8 +19,8 @@ public class DetailsController {
     @FXML
     private HBox hbox;
 
-    Database database = new Database();
-    DetailsManager detailsManager = new DetailsManager();
+    private final Database database = new Database();
+    private final DetailsManager detailsManager = new DetailsManager();
 
     /**
      * Method used to initialize this controller. This method is invoked by JavaFX.

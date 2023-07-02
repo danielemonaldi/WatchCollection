@@ -9,12 +9,12 @@ import java.util.LinkedHashMap;
 
 /**
  * Utility with methods for managing the watch database.
- * Each method uses a CollectionQuery SPARQL query.
+ * Each method uses a DatabaseQuery SPARQL query.
  */
 public class Database extends TabUtility {
 
-    DataParser dataParser = new DataParser();
-    QueryExecutor queryExecutor = new QueryExecutor();
+    private final DataParser dataParser = new DataParser();
+    private final QueryExecutor queryExecutor = new QueryExecutor();
 
     /**
      * Get all watches of the ontology.

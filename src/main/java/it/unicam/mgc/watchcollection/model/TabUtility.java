@@ -14,6 +14,7 @@ public abstract class TabUtility {
     protected InfModel infModel;
 
     public TabUtility() {
+        // Creating the inference model and applying the Pellet reasoner
         InfModelUtility infModelUtility = new InfModelUtility();
         this.infModel = infModelUtility.create("owl/WatchCollection.owl", PelletReasonerFactory.THE_SPEC.getReasoner());
     }

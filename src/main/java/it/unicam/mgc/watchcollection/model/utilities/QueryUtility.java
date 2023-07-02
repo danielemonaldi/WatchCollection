@@ -1,5 +1,6 @@
 package it.unicam.mgc.watchcollection.model.utilities;
 
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class QueryUtility {
@@ -11,7 +12,7 @@ public class QueryUtility {
      * @param filter    Map of filters.
      * @return          SPARQL query with FILTER applied.
      */
-    public static String addFilters(String query, Map<String, Object> filter) {
+    public static String addFilters(String query, LinkedHashMap<String, Object> filter) {
 
         // Remove the closing bracket of the query
         StringBuilder sb = new StringBuilder(query.substring(0, query.length() - 1));
